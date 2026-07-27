@@ -1,105 +1,481 @@
-# Iris Marek Studio
+# Mansi Portfolio
 
-Vanilla HTML/CSS/JS, bundled with Vite, no frameworks. Two pages:
+> An editorial fashion portfolio built as a reusable digital case study framework.
 
-- **`index.html`** — homepage (intro, philosophy, curated case studies, contact)
-- **`case-study.html`** — one reusable template that renders **every** project,
-  chosen via `?project=<slug>` in the URL
+A premium portfolio experience designed to transform fashion presentation boards into interactive digital exhibitions.
 
-## Getting started
+The project combines:
+
+- Fashion lookbook aesthetics
+- Editorial magazine layouts
+- Industrial design documentation
+- Modern frontend architecture
+
+The goal:
+
+> Build an experience where the interface supports the designer's story instead of competing with it.
+
+---
+
+# Overview
+
+The portfolio consists of two main pages:
+
+## `index.html`
+
+Homepage containing:
+
+- Introduction
+- Design philosophy
+- Selected work
+- About section
+- Contact
+
+## `case-study.html`
+
+A reusable case study template that renders every project dynamically.
+
+Projects are selected through:
+
+```
+case-study.html?project=<slug>
+```
+
+No separate HTML page is required for new projects.
+
+---
+
+# Getting Started
+
+Install dependencies:
 
 ```bash
 npm install
-npm run dev      # local dev server
-npm run build    # production build to /dist
 ```
 
-## Adding a new project (no new HTML page, ever)
+Run development server:
 
-1. Copy `src/data/projects/marrow.js` to `src/data/projects/your-project.js`.
-2. Fill in `slug`, `title`, `discipline`, `year`, `featured`, and the
-   `sections` array. Section order in the array **is** the order it renders
-   in — the story spine is:
+```bash
+npm run dev
+```
 
-   ```
-   hero → brief → research → process → exploration
-        → development → outcome → reflection
-   ```
+Production build:
 
-   You can also drop in a `type: 'custom'` section anywhere in the array for
-   project-specific steps (see `second-skin.js`'s "Fit Studies" or
-   `aviary.js`'s "Material Tests" for examples).
-3. Set `featured: true` if it should appear in the homepage's "Selected Work"
-   list. That's it — `src/data/registry.js` finds the file automatically via
-   `import.meta.glob`, the homepage list re-renders itself, and
-   `case-study.html?project=your-project` works immediately.
+```bash
+npm run build
+```
 
-Real imagery: replace the CSS gradient placeholders in
-`caseStudyRenderer.js`'s `mediaBlock()` with real `<img>`/`<picture>` tags
-once photography/renders are ready — drop files into `/public/images/` and
-reference them from the project data (e.g. `image: '/images/marrow-01.jpg'`).
+Preview production build:
 
-## Folder structure
+```bash
+npm run preview
+```
+
+---
+
+# Project Architecture
+
+The application follows a data-driven case study architecture.
 
 ```
-├── index.html                  homepage markup
-├── case-study.html             single dynamic template markup
-├── vite.config.js              multi-page build config (no plugins)
-│
+Project Data
+      |
+      ↓
+registry.js
+      |
+      ↓
+caseStudyRenderer.js
+      |
+      ↓
+Reusable Case Study Template
+      |
+      ↓
+Rendered Project Experience
+```
+
+Each project contains only:
+
+- Content
+- Images
+- Sections
+- Metadata
+
+The renderer controls:
+
+- Structure
+- Layout generation
+- Section rendering
+
+This allows new projects to be added without creating new pages.
+
+---
+
+# Adding a New Project
+
+## 1. Create project data
+
+Copy an existing project:
+
+```
+src/data/projects/marrow.js
+```
+
+into:
+
+```
+src/data/projects/new-project.js
+```
+
+---
+
+## 2. Configure metadata
+
+Each project contains:
+
+```javascript
+{
+  slug,
+  title,
+  discipline,
+  year,
+  featured,
+  sections
+}
+```
+
+---
+
+## 3. Define sections
+
+The section order controls the storytelling flow.
+
+Default structure:
+
+```
+hero
+ ↓
+brief
+ ↓
+research
+ ↓
+process
+ ↓
+exploration
+ ↓
+development
+ ↓
+outcome
+ ↓
+reflection
+```
+
+Custom sections can also be added for project-specific content.
+
+---
+
+## 4. Add imagery
+
+Images are stored inside:
+
+```
+public/images/
+```
+
+Projects reference assets directly:
+
+```javascript
+image:
+'/images/project/image.jpg'
+```
+
+---
+
+# Current Projects
+
+## Tennis Performance Collection
+
+Exploration of:
+
+- Athletic-inspired fashion
+- Performance concepts
+- Trend forecasting
+- Market research
+- Technical development
+- Final collection
+
+---
+
+## Streetwear Collection
+
+Exploration of:
+
+- Streetwear identity
+- Consumer persona
+- Fabric exploration
+- Silhouette development
+- Technical studies
+- Final garments
+
+---
+
+## Nike Retail Experience
+
+Brand and retail exploration focused on:
+
+- Consumer interaction
+- Retail storytelling
+- Brand experience
+- Visual merchandising
+
+---
+
+# Folder Structure
+
+```
+├── index.html
+├── case-study.html
+├── vite.config.js
+
 ├── src/
-│   ├── main.js                 homepage entry — wires up modules
-│   ├── case-study.js           case-study entry — reads ?project=, renders, wires up modules
+
+│   ├── main.js
+│   │
+│   ├── case-study.js
 │   │
 │   ├── styles/
-│   │   ├── tokens.css          colors, fonts — single source of truth
-│   │   ├── base.css            reset + global type
-│   │   ├── layout.css          .wrap, .rv scroll-reveal utility
-│   │   ├── cursor.css          custom cursor
-│   │   ├── header.css          nav
-│   │   ├── hero.css            homepage hero
-│   │   ├── featured.css        homepage "Selected Work" list
-│   │   ├── curator.css         homepage About section
-│   │   ├── marquee.css         tools ticker
-│   │   ├── testimonials.css    quote slider
-│   │   ├── contact.css         closing CTA (shared by both pages)
-│   │   ├── case-study.css      the spine template + progress rail
-│   │   ├── responsive.css      cross-cutting overrides, imported last
-│   │   ├── main.css            homepage CSS entry (imports the above)
-│   │   └── case-study-entry.css case-study CSS entry (imports the above)
+│   │   ├── tokens.css
+│   │   ├── base.css
+│   │   ├── layout.css
+│   │   ├── hero.css
+│   │   ├── featured.css
+│   │   ├── contact.css
+│   │   ├── case-study.css
+│   │   ├── responsive.css
+│   │   └── main.css
 │   │
-│   ├── modules/                 one file, one behavior
-│   │   ├── cursor.js
-│   │   ├── header.js
-│   │   ├── clock.js
+│   ├── modules/
+│   │   ├── caseStudyRenderer.js
+│   │   ├── featuredList.js
 │   │   ├── hero.js
+│   │   ├── cursor.js
 │   │   ├── slider.js
-│   │   ├── scrollReveal.js
-│   │   ├── featuredList.js       renders homepage list from registry
-│   │   ├── caseStudyRenderer.js  renders a project's sections into the template
-│   │   └── progressRail.js       fixed tick-mark nav for a case study page
+│   │   ├── progressRail.js
+│   │   ├── lenis.js
+│   │   └── animations/
 │   │
 │   └── data/
-│       ├── registry.js           import.meta.glob — finds every project file
+│       ├── registry.js
 │       └── projects/
-│           ├── marrow.js
-│           ├── second-skin.js    (includes a `custom` section example)
-│           ├── kestrel.js
-│           ├── glasshouse.js
-│           ├── aviary.js         (includes a `custom` section example)
-│           ├── pocket-museum.js
-│           ├── ghost-drafts.js
-│           └── held-water.js
 │
-└── public/images/                 static assets Vite serves as-is
+└── public/
+    └── images/
 ```
 
-## Design notes
+---
 
-- Visual language (monochrome, geometric SVG motifs, custom cursor with
-  VIEW/OPEN/EXPLORE/NEXT labels, editorial type) is unchanged from the
-  previous single-file version — this refactor only touches architecture.
-- All animation/scroll-reveal/motion behavior is preserved exactly; it's just
-  been split into `initScrollReveal()`, `initHero()`, etc.
-- The case-study progress rail is new (it didn't exist in the single-page
-  version) — it's the one addition needed to make "experience it in
-  sequence" legible as you scroll a project page.
+# Design System
+
+The visual system is centralized.
+
+## `tokens.css`
+
+Single source of truth for:
+
+- Colors
+- Typography
+- Font weights
+- Spacing
+- Container sizes
+- Animation timing
+
+Example:
+
+```css
+var(--bg)
+var(--text)
+var(--accent)
+var(--space-5)
+```
+
+---
+
+## `layout.css`
+
+Controls:
+
+- Containers
+- Page structure
+- Section rhythm
+- Responsive layouts
+- Shared utilities
+
+---
+
+## `case-study.css`
+
+Controls:
+
+- Case study presentation
+- Typography hierarchy
+- Image layouts
+- Project storytelling
+
+---
+
+# Design Direction
+
+The portfolio follows an editorial design philosophy.
+
+Visual language:
+
+- Soft neutral palette
+- Strong typography
+- Large whitespace
+- Minimal decoration
+- Structured layouts
+
+Inspired by:
+
+- Fashion archives
+- Architecture studios
+- Industrial design documentation
+- Editorial publications
+
+---
+
+# Motion System
+
+Current motion architecture includes:
+
+- Scroll reveal
+- Hero animations
+- Custom cursor
+- Progress rail
+- Modular animation utilities
+
+Future enhancements:
+
+- GSAP timelines
+- Lenis smooth scrolling
+- Image reveal masks
+- Scroll-based storytelling
+- Advanced transitions
+
+---
+
+# Experimental Direction
+
+Future creative explorations:
+
+- WebGL experiences
+- Ferrofluid-inspired backgrounds
+- Generative visual systems
+- Interactive portfolio moments
+
+These will remain supporting elements, never distractions from the design work.
+
+---
+
+# AI-Assisted Development
+
+This repository is prepared for AI-assisted development.
+
+Documentation included:
+
+## `PROJECT_BIBLE.md`
+
+Contains:
+
+- Project vision
+- Architecture philosophy
+- Design direction
+- Long-term roadmap
+
+## `AGENTS.md`
+
+Contains:
+
+- Universal AI coding instructions
+- Repository rules
+- Development standards
+
+## `.github/copilot-instructions.md`
+
+Contains:
+
+- GitHub Copilot-specific guidance
+
+---
+
+# Development Principles
+
+## Always
+
+- Preserve architecture
+- Use reusable systems
+- Use design tokens
+- Optimize performance
+- Maintain accessibility
+- Keep code readable
+
+## Avoid
+
+- Hardcoded styles
+- Duplicate components
+- Unnecessary dependencies
+- Decorative effects without purpose
+
+---
+
+# Roadmap
+
+## Phase 1: Foundation
+
+Completed:
+
+- Data-driven project system
+- Dynamic case studies
+- Design token system
+- Layout framework
+
+
+## Phase 2: Visual Refinement
+
+In progress:
+
+- Editorial typography
+- Premium case study layouts
+- Improved storytelling
+- Better responsive behaviour
+
+
+## Phase 3: Motion
+
+Planned:
+
+- GSAP animation system
+- Smooth scrolling
+- Advanced transitions
+
+
+## Phase 4: Signature Experience
+
+Exploration:
+
+- WebGL interactions
+- Generative visuals
+- Immersive portfolio moments
+
+---
+
+# Final Goal
+
+Create a portfolio that feels like:
+
+**A fashion archive.**
+
+**A digital exhibition.**
+
+**A technical showcase.**
+
+The code should disappear behind the experience.
