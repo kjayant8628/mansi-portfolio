@@ -1,0 +1,14 @@
+/* ============================================================
+   curator.css — homepage "About / philosophy" section
+   ============================================================ */
+.curator-sec{ padding:140px 0; border-top:1px solid var(--line); }
+.curator-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:80px; align-items:start; }
+.curator-grid h2{ font-size:clamp(30px,4.2vw,42px); margin:18px 0 28px; font-weight:400; }
+.curator-grid p{ color:#c9c9c5; font-size:14.5px; margin-bottom:18px; max-width:480px; font-weight:300; }
+.pull{ font-family:var(--font-display); font-weight:400; font-size:clamp(20px,2.4vw,28px); line-height:1.4; color:var(--white);
+  border-left:1px solid var(--accent); padding-left:28px; margin-top:8px; }
+.card-list div{ display:flex; justify-content:space-between; padding:18px 0; border-top:1px solid var(--line); font-size:12.5px; font-family:var(--font-mono); }
+.card-list div:last-child{ border-bottom:1px solid var(--line); }
+.card-list span:first-child{ color:var(--gray); text-transform:uppercase; letter-spacing:.05em; }
+.card-list span:last-child{ color:var(--white); }
+@media (max-width:900px){ .curator-grid{ grid-template-columns:1fr; gap:40px; } }

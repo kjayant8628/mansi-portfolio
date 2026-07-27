@@ -1,0 +1,260 @@
+/* ============================================================
+   layout.css
+   Global Layout System
+   Used across homepage + case study pages
+============================================================ */
+
+/* ============================================================
+   PAGE WRAPPER
+============================================================ */
+
+.wrap{
+    width:min(var(--page-width),100%);
+    margin-inline:auto;
+    padding-inline:48px;
+}
+
+/* ============================================================
+   CONTENT CONTAINERS
+============================================================ */
+
+.content{
+    width:min(var(--content-width),100%);
+    margin-inline:auto;
+}
+
+.text{
+    width:min(var(--text-width),100%);
+}
+
+/* ============================================================
+   GLOBAL SECTION SYSTEM
+============================================================ */
+
+section{
+    position:relative;
+    padding-block:var(--space-7);
+    border-top:1px solid var(--line);
+}
+
+section:first-of-type{
+    border-top:none;
+}
+
+/* ============================================================
+   SECTION LAYOUTS
+============================================================ */
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:80px;
+    margin-bottom:var(--space-5);
+}
+
+.section-copy{
+    width:var(--text-width);
+}
+
+.section-content{
+    width:100%;
+}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+============================================================ */
+
+.section-label{
+
+    font-family:var(--font-mono);
+    font-size:var(--fs-caption);
+    font-weight:var(--fw-medium);
+
+    text-transform:uppercase;
+    letter-spacing:var(--tracking-label);
+
+    color:var(--accent);
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.section-label::before{
+
+    content:"";
+
+    width:14px;
+    height:1px;
+
+    background:var(--accent);
+
+}
+
+.section-title{
+
+    font-family:var(--font-body);
+
+    font-size:var(--fs-display-md);
+
+    font-weight:var(--fw-semibold);
+
+    letter-spacing:var(--tracking-tight);
+
+    line-height:.95;
+
+    color:var(--text);
+
+}
+
+.section-description{
+
+    max-width:var(--text-width);
+
+    font-size:var(--fs-body);
+
+    line-height:1.8;
+
+    color:var(--text-soft);
+
+}
+
+/* ============================================================
+   IMAGE HELPERS
+============================================================ */
+
+.project-image{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+}
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+
+.rv{
+
+    opacity:0;
+
+    transform:translateY(24px);
+
+    transition:
+        opacity var(--duration-slow) var(--ease),
+        transform var(--duration-slow) var(--ease);
+
+    will-change:opacity,transform;
+
+}
+
+.rv.in{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.rv2{
+
+    transition-delay:.12s;
+
+}
+
+.rv3{
+
+    transition-delay:.24s;
+
+}
+
+.rv4{
+
+    transition-delay:.36s;
+
+}
+
+/* ============================================================
+   UTILITIES
+============================================================ */
+
+.center{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.grid{
+
+    display:grid;
+
+}
+
+.flex{
+
+    display:flex;
+
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width:1200px){
+
+    .wrap{
+
+        padding-inline:40px;
+
+    }
+
+}
+
+@media (max-width:900px){
+
+    section{
+
+        padding-block:var(--space-6);
+
+    }
+
+    .section-head{
+
+        flex-direction:column;
+        gap:32px;
+
+    }
+
+    .section-copy{
+
+        width:100%;
+
+    }
+
+}
+
+@media (max-width:640px){
+
+    .wrap{
+
+        padding-inline:24px;
+
+    }
+
+    section{
+
+        padding-block:var(--space-5);
+
+    }
+
+}

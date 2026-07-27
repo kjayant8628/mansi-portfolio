@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRIS MAREK — Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="cur"></div>
+<div class="cur-ring"></div>
+
+<header id="siteHeader">
+  <a href="#" class="brandmark">IRIS MAREK <span>STUDIO</span></a>
+  <nav id="siteNav">
+    <ul>
+      <li><a href="#featured">Work</a></li>
+      <li><a href="#curator">About</a></li>
+      <li><a href="#vbook">Praise</a></li>
+      <li><a href="#visit">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="status"><span class="dot"></span> <span id="clock">AVAILABLE</span></div>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-figure"></div>
+
+  <div class="hero-geo" id="heroGeo">
+    <svg viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+      <g class="ring" transform-origin="500 350">
+        <circle cx="500" cy="350" r="230" fill="none" stroke="rgba(244,244,242,.16)" stroke-width="1"/>
+      </g>
+      <g class="ring2" transform-origin="500 350">
+        <circle cx="500" cy="350" r="150" fill="none" stroke="rgba(244,244,242,.12)" stroke-width="1"/>
+      </g>
+      <path d="M500 100 L680 350 L500 600 L320 350 Z" fill="none" stroke="rgba(244,244,242,.18)" stroke-width="1"/>
+      <line x1="0" y1="350" x2="1000" y2="350" stroke="rgba(244,244,242,.06)" stroke-width="1"/>
+      <line x1="500" y1="0" x2="500" y2="700" stroke="rgba(244,244,242,.06)" stroke-width="1"/>
+      <rect class="diamond-pt" x="495" y="95" width="10" height="10" fill="#F4F4F2" transform="rotate(45 500 100)"/>
+      <rect class="diamond-pt" x="495" y="345" width="10" height="10" fill="#3D5CFF" transform="rotate(45 500 350)" style="animation-delay:.6s"/>
+      <rect class="diamond-pt" x="675" y="345" width="10" height="10" fill="#F4F4F2" transform="rotate(45 680 350)" style="animation-delay:1.1s"/>
+      <rect class="diamond-pt" x="315" y="345" width="10" height="10" fill="#F4F4F2" transform="rotate(45 320 350)" style="animation-delay:1.6s"/>
+      <rect class="diamond-pt" x="495" y="595" width="10" height="10" fill="#F4F4F2" transform="rotate(45 500 600)" style="animation-delay:2.1s"/>
+    </svg>
+  </div>
+
+  <div class="corner-text corner-tl">EVERY LINE IS A DECISION SHE MADE TWICE.</div>
+  <div class="corner-text corner-tr">STILL EDITING THE NEXT COLLECTION.</div>
+  <div class="corner-text corner-bl">SHE DOESN'T FOLLOW A GRID. SHE BUILDS ONE, THEN BREAKS IT.</div>
+  <div class="corner-text corner-br">EITHER WAY, THE NEXT ROOM IS ALREADY OPEN.</div>
+
+  <div class="hero-center-quote">
+    I DON'T DESIGN TO DECORATE.<br>I DESIGN TO RESOLVE TENSION.
+    <div class="l2">BUILT FROM STRUCTURE.<br>FINISHED BY INSTINCT.</div>
+  </div>
+  <div class="hero-mono">IM</div>
+
+  <div class="hero-inner">
+    <h1 class="title"><span><b>IRIS</b></span><span><b>MAREK</b></span></h1>
+    <p class="hero-sub">Multidisciplinary designer — <b>graphic / fashion / branding / packaging / 3D / digital / AI / story</b></p>
+    <div class="hero-actions">
+      <a
+        href="#featured"
+        class="btn"
+        data-cursor="view"
+        data-magnetic
+      >
+        View Work <span class="arrow">→</span>
+      </a>
+
+      <a
+        href="#visit"
+        class="btn"
+        data-cursor="open"
+        data-magnetic
+      >
+        Start a Project <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CASE STUDIES (data-driven — see src/modules/featuredList.js) -->
+<section class="featured" id="featured">
+  <div class="wrap">
+    <div class="featured-head rv">
+      <div>
+        <div class="eyebrow">Selected Work</div>
+        <h2>A few projects worth walking through in full.</h2>
+      </div>
+      <p class="featured-note">Each one opens as a full case study — brief, research, process, and the outcome, in sequence.</p>
+    </div>
+
+    <div id="featuredList"><!-- populated by initFeaturedList() --></div>
+  </div>
+</section>
+
+<!-- ABOUT / PHILOSOPHY -->
+<section class="curator-sec" id="curator">
+  <div class="wrap curator-grid">
+    <div class="rv">
+      <div class="eyebrow">About</div>
+      <h2>Twelve years spent making the same argument in eight different rooms.</h2>
+      <p>Iris Marek trained as a printmaker, then spent a decade moving between fashion ateliers, branding studios, and the odd 3D render farm — never quite settling, on purpose. The work here shares one belief: craft and technology aren't opposing forces, they're doors between the same building.</p>
+      <p>Recent work leans into AI-assisted drafting as a starting point rather than an ending one — a way to draft faster so more time goes to the part only a hand can do.</p>
+      <p class="pull">I don't think a good idea cares which software made it. It cares whether you were paying attention.</p>
+    </div>
+    <div class="rv rv2">
+      <div class="card-list">
+        <div><span>Practice founded</span><span>2013</span></div>
+        <div><span>Disciplines</span><span>08</span></div>
+        <div><span>Projects catalogued</span><span>45</span></div>
+        <div><span>Based in</span><span>Studio 4B</span></div>
+        <div><span>Accepting</span><span>Q1 2027</span></div>
+        <div><span>Availability</span><span>By Appointment</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS MARQUEE -->
+<div class="materials">
+  <div class="marquee">
+    <span>Adobe Illustrator</span><span>Figma</span><span>Blender</span><span>CLO3D</span><span>Midjourney</span><span>Cinema 4D</span><span>Procreate</span><span>Substance Painter</span><span>InDesign</span><span>Runway</span><span>Photography</span><span>Letterpress</span>
+    <span>Adobe Illustrator</span><span>Figma</span><span>Blender</span><span>CLO3D</span><span>Midjourney</span><span>Cinema 4D</span><span>Procreate</span><span>Substance Painter</span><span>InDesign</span><span>Runway</span><span>Photography</span><span>Letterpress</span>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="vbook" id="vbook">
+  <div class="wrap">
+    <div class="vbook-head rv">
+      <div>
+        <div class="eyebrow">Testimonials</div>
+        <h2>What the Work Left Behind</h2>
+      </div>
+      <div class="vb-nav">
+        <button id="vbPrev" aria-label="Previous" data-cursor="next">←</button>
+        <button id="vbNext" aria-label="Next" data-cursor="next">→</button>
+      </div>
+    </div>
+    <div class="vb-track rv">
+      <div class="vb-slides" id="vbSlides">
+        <div class="vb-slide">
+          <div>
+            <blockquote>She rebuilt our packaging as if it were a small piece of architecture — every fold does something.</blockquote>
+            <div class="who"><b>Sarah Mitchell</b> — CEO, Glasshouse Botanicals</div>
+          </div>
+          <div class="vb-num">01</div>
+        </div>
+        <div class="vb-slide">
+          <div>
+            <blockquote>The only designer we've worked with who used AI drafts to speed up, never to skip the thinking.</blockquote>
+            <div class="who"><b>Daniel Osei</b> — Creative Director, Kestrel Roasters</div>
+          </div>
+          <div class="vb-num">02</div>
+        </div>
+        <div class="vb-slide">
+          <div>
+            <blockquote>Second Skin still gets referenced in our studio two years later. Rare for a capsule collection.</blockquote>
+            <div class="who"><b>Priya Nair</b> — Ateliér Nord</div>
+          </div>
+          <div class="vb-num">03</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="visit">
+  <svg class="contact-cross" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
+    <line x1="500" y1="0" x2="500" y2="500" stroke="rgba(244,244,242,.06)"/>
+    <line x1="0" y1="250" x2="1000" y2="250" stroke="rgba(244,244,242,.06)"/>
+    <circle cx="500" cy="250" r="180" fill="none" stroke="rgba(244,244,242,.08)"/>
+  </svg>
+  <div class="wrap contact-inner rv">
+    <div class="eyebrow">Available for Projects</div>
+    <h2>Let's build<br>room nine.</h2>
+    <a href="mailto:hello@irismarek-studio.com" class="email-link" data-cursor="open">hello@irismarek-studio.com</a>
+    <div class="contact-meta">
+      <span>© 2026 Iris Marek Studio</span>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Behance</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+      <span>Mon–Fri · By Appointment</span>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

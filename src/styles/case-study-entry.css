@@ -1,0 +1,13 @@
+/* ============================================================
+   case-study-entry.css — stylesheet entry point for
+   case-study.html. Reuses every shared token/component and
+   adds the spine template + contact closing section.
+   ============================================================ */
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './cursor.css';
+@import './header.css';
+@import './case-study.css';
+@import './contact.css';
+@import './responsive.css';

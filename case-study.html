@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Iris Marek Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!--
+  This ONE page renders every project. Nothing here is
+  project-specific — the content comes entirely from
+  /src/data/projects/<slug>.js, selected via ?project=<slug>
+  in the URL and drawn by src/modules/caseStudyRenderer.js
+  into #caseStudyRoot below.
+
+  Adding project #9 never means creating case-study-9.html.
+-->
+
+<div class="cur"></div>
+<div class="cur-ring"></div>
+
+<header id="siteHeader">
+  <a href="index.html" class="brandmark">IRIS MAREK <span>STUDIO</span></a>
+  <nav id="siteNav">
+    <ul>
+      <li><a href="index.html#featured">Work</a></li>
+      <li><a href="index.html#curator">About</a></li>
+      <li><a href="index.html#visit">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="status"><span class="dot"></span> <span id="clock">AVAILABLE</span></div>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<a href="index.html#featured" class="cs-back" data-cursor="open">← Back to Work</a>
+
+<div class="cs-progress" id="csProgress"><!-- populated by initProgressRail() --></div>
+
+<main id="caseStudyRoot">
+  <!-- populated by renderCaseStudy() — see src/modules/caseStudyRenderer.js -->
+</main>
+
+<script type="module" src="/src/case-study.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+/* ============================================================
+   main.css — homepage stylesheet entry point.
+   Import order matters: tokens/base/layout first, components
+   next, responsive.css always last.
+   ============================================================ */
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './cursor.css';
+@import './header.css';
+@import './hero.css';
+@import './featured.css';
+@import './curator.css';
+@import './marquee.css';
+@import './testimonials.css';
+@import './contact.css';
+@import './responsive.css';

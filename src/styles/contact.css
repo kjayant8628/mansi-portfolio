@@ -1,0 +1,17 @@
+/* ============================================================
+   contact.css — closing CTA section (used on homepage;
+   also reused, in compact form, at the end of a case study)
+   ============================================================ */
+.contact{ background:var(--bg-2); padding:160px 0 60px; position:relative; overflow:hidden; border-top:1px solid var(--line); }
+.contact-cross{ position:absolute; inset:0; pointer-events:none; opacity:.5; }
+.contact-inner{ position:relative; z-index:1; text-align:center; }
+.contact h2{ font-size:clamp(42px,8.4vw,110px); line-height:.96; font-weight:500; }
+.contact .eyebrow{ justify-content:center; margin:0 auto 22px; }
+.email-link{ display:inline-block; margin-top:34px; font-family:var(--font-mono); font-size:clamp(13px,1.8vw,17px);
+  border-bottom:1px solid var(--accent); padding-bottom:6px; color:var(--white); letter-spacing:.02em; }
+.contact-meta{ margin-top:90px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;
+  border-top:1px solid var(--line); padding-top:28px;
+  font-family:var(--font-mono); font-size:10.5px; color:var(--gray); letter-spacing:.06em; text-transform:uppercase; }
+.contact-meta a:hover{ color:var(--accent); }
+.contact-meta ul{ list-style:none; display:flex; gap:24px; }
+@media (max-width:640px){ .contact-meta{ flex-direction:column; } }

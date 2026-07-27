@@ -1,0 +1,18 @@
+/* ============================================================
+   testimonials.css — quote slider (homepage)
+   ============================================================ */
+.vbook{ padding:140px 0; }
+.vbook-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:20px; margin-bottom:60px; flex-wrap:wrap; }
+.vbook-head h2{ font-size:clamp(30px,4.2vw,42px); margin-top:18px; font-weight:400; }
+.vb-nav{ display:flex; gap:0; border:1px solid var(--line); }
+.vb-nav button{ width:44px; height:44px; border:none; border-right:1px solid var(--line); background:transparent; color:var(--white); cursor:pointer; font-family:var(--font-mono); }
+.vb-nav button:last-child{ border-right:none; }
+.vb-nav button:hover{ background:rgba(244,244,242,.06); }
+.vb-track{ overflow:hidden; border-top:1px solid var(--line); }
+.vb-slides{ display:flex; transition:transform .7s cubic-bezier(.16,1,.3,1); }
+.vb-slide{ min-width:100%; display:grid; grid-template-columns:1fr 1fr; gap:60px; padding-top:60px; }
+.vb-slide blockquote{ font-family:var(--font-display); font-weight:400; font-size:clamp(20px,2.4vw,28px); line-height:1.4; }
+.vb-slide .who{ margin-top:24px; font-family:var(--font-mono); font-size:11.5px; color:var(--gray); text-transform:uppercase; letter-spacing:.04em; }
+.vb-slide .who b{ color:var(--white); font-weight:400; }
+.vb-num{ align-self:start; justify-self:end; font-family:var(--font-mono); font-size:64px; color:var(--line-strong); font-weight:300; }
+@media (max-width:900px){ .vb-slide{ grid-template-columns:1fr; } .vb-num{ display:none; } }

@@ -1,0 +1,10 @@
+/* ============================================================
+   responsive.css — cross-cutting overrides only.
+   Component-specific breakpoints already live inside each
+   partial (e.g. hero.css, case-study.css). This file is for
+   rules that touch multiple components at once, and is
+   imported LAST so it always wins on specificity ties.
+   ============================================================ */
+@media (max-width:640px){
+  .btn{ margin-right:24px; padding:16px 20px 16px 0; }
+}

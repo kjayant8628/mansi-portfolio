@@ -1,0 +1,106 @@
+/* ============================================================
+   tokens.css — Design Tokens + Theme System
+   ============================================================ */
+
+/* ============================================================
+   DEFAULT (HOMEPAGE - DARK)
+   ============================================================ */
+
+:root{
+
+  /* Colors */
+
+  --bg:#050505;
+  --bg-alt:#0B0B0B;
+  --surface:#111111;
+
+  --white:#F5F5F3;
+  --text:#F5F5F3;
+  --text-soft:#B7B7B3;
+  --text-muted:#7E7E79;
+
+  --gray:#B7B7B3;
+  --gray-dim:#4A4A4A;
+
+  --line:#262626;
+  --line-strong:#3A3A3A;
+
+  --accent:#6378FF;
+
+  /* Typography */
+
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+
+  --fs-display-xl:clamp(5rem,8vw,7rem);
+  --fs-display-lg:clamp(3.8rem,6vw,5.5rem);
+  --fs-display-md:clamp(2.8rem,4vw,4rem);
+
+  --fs-h1:3rem;
+  --fs-h2:2.25rem;
+  --fs-h3:1.5rem;
+
+  --fs-body-lg:1.125rem;
+  --fs-body:1rem;
+  --fs-small:.875rem;
+  --fs-caption:.72rem;
+
+  --fw-light:300;
+  --fw-regular:400;
+  --fw-medium:500;
+  --fw-semibold:600;
+  --fw-bold:700;
+
+  --tracking-tight:-0.05em;
+  --tracking-normal:0;
+  --tracking-wide:0.16em;
+  --tracking-label:0.24em;
+
+  --space-1:8px;
+  --space-2:16px;
+  --space-3:24px;
+  --space-4:40px;
+  --space-5:64px;
+  --space-6:96px;
+  --space-7:160px;
+
+  --content-width:720px;
+  --text-width:430px;
+  --hero-width:1200px;
+  --page-width:1440px;
+
+  --radius:0px;
+
+  --duration-fast:.25s;
+  --duration:.45s;
+  --duration-slow:.8s;
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+
+  --mx:50%;
+  --my:40%;
+  --theme-transition: 0.6s cubic-bezier(.22,.61,.36,1);
+}
+
+/* ============================================================
+   LIGHT THEME (CASE STUDIES)
+   ============================================================ */
+
+body.light{
+
+  --bg:#F7F7F4;
+  --bg-alt:#F2F2EF;
+  --surface:#FFFFFF;
+
+  --white:#2E3238;
+  --text:#2E3238;
+  --text-soft:#6E737A;
+  --text-muted:#9AA0A8;
+
+  --gray:#6E737A;
+  --gray-dim:#D7D7D3;
+
+  --line:#E7E7E4;
+  --line-strong:#D7D7D3;
+}
