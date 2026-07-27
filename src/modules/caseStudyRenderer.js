@@ -14,7 +14,8 @@
 //        | outcome | reflection | custom
 //   2. a LAYOUT         — how it's *arranged* on the page:
 //        stack | full | center | gallery | grid | cards
-//        | pair | statement | metrics
+//        | pair | statement | metrics | media-left | media-right
+//        | full-bleed
 //
 // Content type never dictates markup. Layout does. A "research"
 // section and a "development" section can both use the `gallery`
@@ -62,6 +63,15 @@ function renderFigure(media = {}, options = {}) {
   if (typeof media === 'string') {
     media = { image: media };
   }
+
+  media = {
+    ...media,
+    caption: media.caption || options.caption || '',
+    description: media.description || options.description || '',
+    alt: media.alt || options.alt || '',
+    aspect: media.aspect || options.aspect || '',
+    loading: media.loading || options.loading || 'lazy'
+  };
 
   const {
     image,
@@ -159,7 +169,35 @@ function normalizeMedia(media) {
     return media.map(normalizeItem);
   }
 
+  if (typeof media === 'object' && media.image) {
+    return [normalizeItem(media)];
+  }
+
   return [];
+}
+
+/** All normalized media items for a section. */
+function getSectionMediaItems(section) {
+  return normalizeMedia(section.media);
+}
+
+/** First media item with section-level caption / alt defaults applied. */
+function getPrimaryMedia(section) {
+  const items = getSectionMediaItems(section);
+  const first = items[0] || {
+    image: '',
+    caption: '',
+    description: '',
+    alt: '',
+    aspect: '',
+    loading: 'lazy'
+  };
+
+  return {
+    ...first,
+    caption: first.caption || section.mediaLabel || '',
+    alt: first.alt || section.heading || ''
+  };
 }
 
 /** Shared eyebrow + heading block used at the top of every generic
@@ -255,11 +293,10 @@ function renderReflection(section) {
  *  The default, general-purpose layout (used when no layout is
  *  specified, or as a fallback for an unrecognized one). */
 function renderStack(section) {
-  const [media] = normalizeMedia(section.media);
   const inner = `
     ${renderSectionHead(section)}
     <div class="cs-copy">${renderBody(section.body)}</div>
-    ${renderFigure(media?.image, { caption: section.mediaLabel, alt: section.heading })}`;
+    ${renderFigure(getPrimaryMedia(section))}`;
 
   return renderSectionShell(section, inner);
 }
@@ -268,11 +305,10 @@ function renderStack(section) {
  *  Used for hero-weight moments inside a case study (e.g. the
  *  outcome). */
 function renderFull(section) {
-  const [media] = normalizeMedia(section.media);
   const inner = `
     ${renderSectionHead(section)}
     <div class="cs-media-wrapper">
-      ${renderFigure(media?.image, { caption: section.mediaLabel, alt: section.heading })}
+      ${renderFigure(getPrimaryMedia(section))}
     </div>
     <div class="cs-copy">${renderBody(section.body)}</div>`;
 
@@ -282,10 +318,9 @@ function renderFull(section) {
 /** center — heading, one centered image, then copy. Good for a
  *  single focal artifact (a key mark, a hero shot of an object). */
 function renderCenter(section) {
-  const [media] = normalizeMedia(section.media);
   const inner = `
     ${renderSectionHead(section)}
-    ${renderFigure(media?.image, { caption: section.mediaLabel, alt: section.heading })}
+    ${renderFigure(getPrimaryMedia(section))}
     <div class="cs-copy">${renderBody(section.body)}</div>`;
 
   return renderSectionShell(section, inner, { className: 'center' });
@@ -294,10 +329,8 @@ function renderCenter(section) {
 /** pair — exactly two images shown side by side, each with its own
  *  optional caption. Falls back gracefully if fewer are supplied. */
 function renderPair(section) {
-  const media = normalizeMedia(section.media).slice(0, 2);
-  const figures = media
-    .map((item) => renderFigure(item.image, { caption: item.caption }))
-    .join('');
+  const media = getSectionMediaItems(section).slice(0, 2);
+  const figures = media.map((item) => renderFigure(item)).join('');
 
   const inner = `
     ${renderSectionHead(section)}
@@ -309,8 +342,8 @@ function renderPair(section) {
 /** grid — any number of images in a uniform grid. No captions by
  *  design (use `gallery` when captions matter). */
 function renderGrid(section) {
-  const media = normalizeMedia(section.media);
-  const cells = media.map((item) => renderFigure(item.image)).join('');
+  const media = getSectionMediaItems(section);
+  const cells = media.map((item) => renderFigure(item)).join('');
 
   const inner = `
     ${renderSectionHead(section)}
@@ -322,10 +355,8 @@ function renderGrid(section) {
 /** gallery — any number of images, each individually captioned.
  *  Semantic <figure>/<figcaption> pairs, no assumption about count. */
 function renderGallery(section) {
-  const media = normalizeMedia(section.media);
-  const figures = media
-    .map((item) => renderFigure(item.image, { caption: item.caption }))
-    .join('');
+  const media = getSectionMediaItems(section);
+  const figures = media.map((item) => renderFigure(item)).join('');
 
   const inner = `
     ${renderSectionHead(section)}
@@ -377,6 +408,47 @@ function renderStatement(section) {
   return renderSectionShell(section, inner);
 }
 
+/** Shared two-column copy + image split (DOM order sets left/right). */
+function renderMediaSplit(section, { mediaFirst = false } = {}) {
+  const figure = renderFigure(getPrimaryMedia(section));
+  const copy = `<div class="cs-copy">${renderBody(section.body)}</div>`;
+  const mediaCol = figure ? `<div class="cs-split-media">${figure}</div>` : '';
+  const splitInner = mediaFirst ? `${mediaCol}${copy}` : `${copy}${mediaCol}`;
+
+  const inner = `
+    ${renderSectionHead(section)}
+    <div class="cs-split">${splitInner}</div>`;
+
+  return renderSectionShell(section, inner);
+}
+
+/** Copy left, image right. */
+function renderMediaRight(section) {
+  return renderMediaSplit(section, { mediaFirst: false });
+}
+
+/** Image left, copy right. */
+function renderMediaLeft(section) {
+  return renderMediaSplit(section, { mediaFirst: true });
+}
+
+/** Outcome-style viewport-wide image; copy stays in .wrap below. */
+function renderFullBleed(section) {
+  const layout = section.layout || 'full-bleed';
+  const figure = renderFigure(getPrimaryMedia(section));
+
+  return `
+    <section class="cs-section layout-${layout} rv" data-type="${section.type}">
+      <div class="wrap">
+        ${renderSectionHead(section)}
+      </div>
+      ${figure ? `<div class="cs-bleed">${figure}</div>` : ''}
+      <div class="wrap">
+        <div class="cs-copy">${renderBody(section.body)}</div>
+      </div>
+    </section>`;
+}
+
 /* =================================================================
    DISPATCH
    The only place that maps a layout name to its renderer. Adding a
@@ -393,7 +465,10 @@ const LAYOUT_RENDERERS = {
   gallery: renderGallery,
   cards: renderCards,
   metrics: renderMetrics,
-  statement: renderStatement
+  statement: renderStatement,
+  'media-left': renderMediaLeft,
+  'media-right': renderMediaRight,
+  'full-bleed': renderFullBleed
 };
 
 function renderGeneric(section) {
