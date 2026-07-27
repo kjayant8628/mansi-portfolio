@@ -30,8 +30,10 @@ The portfolio should showcase the work, not the technology.
 ------------------------------------------------------------------------
 
 # Tech Stack
-
--   React
+- Vanilla JavaScript ES Modules
+- Vite Multi Page Application
+- HTML templates
+- CSS modules/files
 -   Vite
 -   JavaScript
 -   CSS
@@ -66,6 +68,16 @@ Responsibilities:
 -   Styles = presentation only.
 
 Do not mix these responsibilities.
+
+
+## Architecture Rules
+
+- This project uses Vanilla JavaScript, not React.
+- Maintain the Vite multi-page architecture.
+- Do not convert to React without explicit approval.
+- Keep project content inside src/data/projects.
+- Keep rendering logic inside src/modules.
+- Keep styling inside src/styles.
 
 ------------------------------------------------------------------------
 

@@ -15,13 +15,26 @@ The technology should support the designer's story, never overpower it.
 
 ## Technical Architecture
 
-Stack: - React - Vite - JavaScript - CSS design system - Future GSAP and
+Stack: - Vite - JavaScript - CSS design system - Future GSAP and
 Lenis motion layer
 
 Architecture:
 
 src/ - data/projects: project content only - modules: rendering logic -
 styles: visual system - main.js: homepage - case-study.js: project pages
+
+------------------------------------------------------------------------
+
+## Technical Identity
+
+The project is not React.
+
+Stack:
+
+- Vite
+- Vanilla JavaScript ES Modules
+- CSS Architecture
+- HTML Multi Page Application
 
 ------------------------------------------------------------------------
 
@@ -52,6 +65,23 @@ var(--bg) var(--text) var(--line) var(--accent)
 
 ------------------------------------------------------------------------
 
+## Design Philosophy
+
+The portfolio should feel like:
+
+- Fashion archive
+- Digital exhibition
+- Editorial magazine
+
+Avoid:
+
+- Excessive animations
+- Generic gradients
+- Dashboard-style layouts
+- Template-like UI
+
+------------------------------------------------------------------------
+
 ## Visual Direction
 
 The portfolio should feel:
@@ -66,6 +96,23 @@ Avoid pure black and pure white.
 
 Prefer: - warm backgrounds - charcoal text - soft greys - restrained
 accents
+
+------------------------------------------------------------------------
+
+## Motion Philosophy
+
+Motion should support storytelling.
+
+Preferred:
+- subtle reveals
+- image transitions
+- typography movement
+- scroll progression
+
+Avoid:
+- distracting effects
+- unnecessary WebGL
+- animation for decoration only
 
 ------------------------------------------------------------------------
 
