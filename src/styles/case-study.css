@@ -472,45 +472,25 @@ object-fit:cover;
 
 /* ---------- GALLERY ---------- */
 
-.layout-gallery{
-
-display:flex;
-flex-direction:column;
-gap:120px;
-
+.layout-gallery .cs-section-body{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:48px;
 }
 
-.layout-gallery figure{
 
-margin:0;
-
+.layout-gallery img{
+ width:100%;
+ height:auto;
+ object-fit:contain;
 }
 
-.layout-gallery .cs-media{
 
-aspect-ratio:1/1;
+@media(max-width:900px){
 
-width:min(1200px,92vw);
-
-margin:auto;
-
-object-fit:cover;
-
+.layout-gallery .cs-section-body{
+ grid-template-columns:1fr;
 }
-
-.layout-gallery figcaption{
-
-margin-top:20px;
-
-font-family:var(--font-mono);
-
-font-size:10px;
-
-letter-spacing:.18em;
-
-text-transform:uppercase;
-
-color:var(--text-muted);
 
 }
 
@@ -930,7 +910,31 @@ font-size:54px;
 
 }
 
+/* Nike Retail editorial image treatment */
 
+.cs-section img {
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+
+
+.layout-media-right .cs-media,
+.layout-media-left .cs-media {
+  align-items:center;
+}
+
+
+.layout-media-right img,
+.layout-media-left img {
+  max-height:720px;
+  object-fit:contain;
+}
+
+
+.layout-full img {
+  object-fit:contain;
+}
 /* ===========================================================
    END
 =========================================================== */

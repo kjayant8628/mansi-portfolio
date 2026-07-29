@@ -14,7 +14,7 @@ export default {
 
   featured: true,
 
-  cover: "/images/nike-retail/hero.jpg",
+  cover: "/images/nike-retail/page_01.png",
 
 sections: [
 
@@ -53,6 +53,8 @@ sections: [
 {
     type: "gallery",
 
+    label: "Brand Research",
+
     heading: "Brand Research",
 
     media: [
@@ -85,7 +87,7 @@ sections: [
 
     heading: "Creative Direction",
 
-    layout: "full",
+    layout: "media-right",
 
     media: "/images/nike-retail/page_06.png",
 
@@ -187,7 +189,7 @@ sections: [
 
     heading: "Final Retail Experience",
 
-    layout: "full",
+    layout: "full-bleed",
 
     media: "/images/nike-retail/page_15.png",
 
@@ -199,7 +201,9 @@ sections: [
 {
     type: "gallery",
 
-    heading: "Final Visualisations",
+    heading: "Final Retail Experience",
+
+    layout: "gallery",
 
     media: [
 
@@ -240,7 +244,29 @@ sections: [
 
         {
             image: "/images/nike-retail/page_23.png",
-            caption: "Final Visual"
+            caption: "Final Interior View"
+        }
+
+    ]
+},
+
+{
+    type: "gallery",
+
+    heading: "Architectural Views",
+
+    layout: "pair",
+
+    media: [
+
+        {
+            image: "/images/nike-retail/page_24.png",
+            caption: "Retail Perspective Study"
+        },
+
+        {
+            image: "/images/nike-retail/page_25.png",
+            caption: "Store Sections & Exterior Views"
         }
 
     ]
@@ -252,10 +278,25 @@ sections: [
     heading: "Reflection",
 
     quote:
-        "Retail design is not only about displaying products—it is about creating memorable experiences that strengthen the relationship between people and brands.",
+        "Retail spaces succeed when architecture, movement and storytelling work together to create an experience that customers remember long after they leave.",
 
     body: [
-        "This project strengthened my understanding of retail psychology, customer circulation, spatial planning, visual merchandising and translating brand identity into immersive three-dimensional environments."
+        "This project strengthened my understanding of retail psychology, spatial planning, visual merchandising, customer circulation and translating a global sports brand into an immersive three-dimensional environment."
+    ]
+},
+
+{
+    type: "gallery",
+
+    heading: "Thank You",
+
+    layout: "center",
+
+    media: [
+        {
+            image: "/images/nike-retail/page_26.png",
+            caption: "Thank You"
+        }
     ]
 }
 

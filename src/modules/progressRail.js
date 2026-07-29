@@ -12,7 +12,7 @@ export function initProgressRail() {
       (s, i) => `
       <div class="tick" data-index="${i}">
         <span class="bar"></span>
-        <span class="label mono">${s.dataset.type}</span>
+        <span class="label mono"></span>
       </div>`
     )
     .join('');

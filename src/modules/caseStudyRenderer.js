@@ -204,11 +204,23 @@ function getPrimaryMedia(section) {
  *  (non-hero, non-reflection) section. `label` defaults to the
  *  section's content type, capitalized, but can be overridden. */
 function renderSectionHead(section) {
-  const label = section.eyebrow || section.type;
+
+  const label = section.eyebrow || "";
+
   return `
     <header class="cs-section-head">
-      <div class="eyebrow">${capitalize(label)}</div>
-      <h2>${text(section.heading || '')}</h2>
+      ${
+        label
+          ? `<div class="eyebrow">${capitalize(label)}</div>`
+          : ""
+      }
+
+      ${
+        section.heading
+          ? `<h2>${text(section.heading)}</h2>`
+          : ""
+      }
+
     </header>`;
 }
 
