@@ -24,6 +24,7 @@ export function initHero() {
     if (ring2) gsap.to(ring2, { x: 0, y: 0, rotation: 0, duration: 1.4, ease: "power3.out", overwrite: "auto" });
     if (path) gsap.to(path, { x: 0, y: 0, duration: 1.0, ease: "power3.out", overwrite: "auto" });
     if (lines.length) gsap.to(lines, { x: 0, y: 0, duration: 0.8, ease: "power3.out", overwrite: "auto" });
+    if (diamonds.length) gsap.to(diamonds, { x: 0, y: 0, duration: 1.0, ease: "power3.out", overwrite: "auto" });
     if (figure) gsap.to(figure, { x: 0, y: 0, duration: 1.2, ease: "power3.out", overwrite: "auto" });
   }
 
@@ -75,6 +76,18 @@ export function initHero() {
         x: px * 8,
         y: py * 8,
         duration: 0.5,
+        ease: "power2.out",
+        overwrite: "auto"
+      });
+    }
+
+    // Diamond Points: Layered node displacement
+    if (diamonds.length) {
+      gsap.to(diamonds, {
+        x: px * 14,
+        y: py * 14,
+        duration: 0.65,
+        stagger: 0.02,
         ease: "power2.out",
         overwrite: "auto"
       });
@@ -132,5 +145,20 @@ export function initHero() {
         geo.style.opacity = '1';
       }
     });
+  }
+}
+
+/**
+ * Utility helper to dynamically populate the Hero Creative Canvas container
+ * with 3D renders, video streams, or image previews.
+ */
+export function setHeroCanvasMedia(src, type = 'image') {
+  const container = document.getElementById('heroCanvasMedia');
+  if (!container || !src) return;
+
+  if (type === 'video') {
+    container.innerHTML = `<video src="${src}" autoplay loop muted playsinline class="hero-canvas-media"></video>`;
+  } else {
+    container.innerHTML = `<img src="${src}" alt="Studio Canvas Preview" class="hero-canvas-media" />`;
   }
 }
