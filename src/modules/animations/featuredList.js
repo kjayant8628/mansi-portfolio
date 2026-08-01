@@ -2,7 +2,7 @@ import { revealOnScroll } from "./utils.js";
 
 export function initFeaturedAnimation() {
 
-    const cards = document.querySelectorAll(".featured-item");
+    const cards = document.querySelectorAll(".feat-row");
 
     cards.forEach(card => {
 

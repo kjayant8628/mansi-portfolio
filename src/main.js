@@ -22,11 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initLenis();
 
+    initFeaturedList();
+
     initCursor();
     initHeader();
 
     initHero();
-    initFeaturedList();
 
     initClock();
     initSlider();

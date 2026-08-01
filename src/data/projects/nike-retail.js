@@ -203,7 +203,7 @@ sections: [
 
     heading: "Final Retail Experience",
 
-    layout: "gallery",
+    layout: "full-bleed",
 
     media: [
 
