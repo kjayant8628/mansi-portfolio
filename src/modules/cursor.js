@@ -10,7 +10,7 @@ export function initCursor() {
 
   let mx = 0, my = 0, rx = 0, ry = 0;
 
-  window.addEventListener('mousemove', (e) => {
+  window.addEventListener('pointermove', (e) => {
     mx = e.clientX; my = e.clientY;
     cur.style.left = mx + 'px';
     cur.style.top = my + 'px';
@@ -24,9 +24,22 @@ export function initCursor() {
     requestAnimationFrame(loop);
   })();
 
-  document.querySelectorAll('[data-cursor]').forEach((el) => {
-    const label = LABELS[el.dataset.cursor] || '';
-    el.addEventListener('mouseenter', () => { ring.classList.add('big'); ring.textContent = label; });
-    el.addEventListener('mouseleave', () => { ring.classList.remove('big'); ring.textContent = ''; });
-  });
+  function bindCursorEvents() {
+    document.querySelectorAll('[data-cursor]').forEach((el) => {
+      if (el.dataset.cursorBound) return;
+      el.dataset.cursorBound = 'true';
+
+      const label = LABELS[el.dataset.cursor] || el.dataset.cursor.toUpperCase();
+      el.addEventListener('mouseenter', () => {
+        ring.classList.add('big');
+        ring.textContent = label;
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.classList.remove('big');
+        ring.textContent = '';
+      });
+    });
+  }
+
+  bindCursorEvents();
 }

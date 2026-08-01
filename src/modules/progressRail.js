@@ -45,7 +45,7 @@ export function initProgressRail() {
         }
       });
     },
-    { threshold: 0.5 }
+    { rootMargin: '-20% 0px -50% 0px', threshold: 0.1 }
   );
   sections.forEach((s) => io.observe(s));
 }

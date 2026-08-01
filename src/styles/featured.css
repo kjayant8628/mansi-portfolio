@@ -27,3 +27,37 @@
   .feat-row{ grid-template-columns:44px 1fr; }
   .feat-row .desc, .feat-row .count, .feat-mark{ display:none; }
 }
+
+/* Floating Image Preview Card */
+.feat-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 200px;
+  pointer-events: none;
+  z-index: 500;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-alt);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85);
+  transition: opacity .35s cubic-bezier(.16,1,.3,1), transform .35s cubic-bezier(.16,1,.3,1);
+  will-change: transform, opacity;
+}
+
+.feat-preview.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.feat-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px), (hover: none) {
+  .feat-preview { display: none !important; }
+}

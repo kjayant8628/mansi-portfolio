@@ -10,10 +10,18 @@ export function initFeaturedList() {
 
   const projects = getFeaturedProjects();
 
+  // Image preloading to eliminate hover flicker
+  projects.forEach((p) => {
+    if (p.cover) {
+      const img = new Image();
+      img.src = p.cover;
+    }
+  });
+
   container.innerHTML = projects
     .map(
       (p, i) => `
-      <a class="feat-row rv" href="case-study.html?project=${p.slug}" data-cursor="explore">
+      <a class="feat-row rv" href="case-study.html?project=${p.slug}" data-cursor="explore" data-cover="${p.cover || ''}">
         <div class="num mono">${String(i + 1).padStart(2, '0')}</div>
         <div class="name">${p.title}</div>
         <div class="desc">${p.discipline.join(' / ')}</div>
