@@ -33,3 +33,20 @@ nav a:hover::after{ transform:scaleX(1); }
   .status{ display:none; }
   .menu-btn{ display:flex; }
 }
+
+/* Mobile Navigation Backdrop */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 390;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+
+.nav-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}

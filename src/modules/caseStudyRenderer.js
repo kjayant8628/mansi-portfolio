@@ -533,7 +533,7 @@ export function renderCaseStudy(slug) {
     .join('');
 
   root.innerHTML = sectionsHtml + renderNextProject(slug);
-  document.title = `${project.title} — Mansi Rawat`;
+  document.title = `${project.title} — Mansi Rawat Studio`;
 
   return project;
 }

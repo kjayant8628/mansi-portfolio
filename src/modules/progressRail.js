@@ -7,14 +7,25 @@ export function initProgressRail() {
   const sections = document.querySelectorAll('#caseStudyRoot [data-type]');
   if (!rail || !sections.length) return;
 
+  function getSectionLabel(s) {
+    const type = s.getAttribute('data-type') || '';
+    if (type === 'hero') return 'Overview';
+    const eyebrow = s.querySelector('.eyebrow');
+    if (eyebrow && eyebrow.textContent.trim()) return eyebrow.textContent.trim();
+    const heading = s.querySelector('h2');
+    if (heading && heading.textContent.trim()) return heading.textContent.trim();
+    return type ? type.charAt(0).toUpperCase() + type.slice(1) : 'Section';
+  }
+
   rail.innerHTML = Array.from(sections)
-    .map(
-      (s, i) => `
-      <div class="tick" data-index="${i}">
+    .map((s, i) => {
+      const labelText = getSectionLabel(s);
+      return `
+      <div class="tick" data-index="${i}" title="${labelText}">
         <span class="bar"></span>
-        <span class="label mono"></span>
-      </div>`
-    )
+        <span class="label mono">${labelText}</span>
+      </div>`;
+    })
     .join('');
 
   const ticks = rail.querySelectorAll('.tick');

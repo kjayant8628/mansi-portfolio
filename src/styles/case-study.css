@@ -48,6 +48,69 @@ transition:.3s;
 color:var(--white);
 }
 
+/* ===========================================================
+   PROGRESS RAIL
+=========================================================== */
+.cs-progress {
+  position: fixed;
+  right: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs-progress .tick {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 12px;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.cs-progress .tick .bar {
+  width: 14px;
+  height: 1px;
+  background: var(--line-strong);
+  transition: width .3s ease, background-color .3s ease;
+}
+
+.cs-progress .tick.active .bar,
+.cs-progress .tick:hover .bar {
+  width: 24px;
+  background: var(--accent);
+}
+
+.cs-progress .tick .label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gray);
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .3s ease, transform .3s ease, color .3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.cs-progress .tick:hover .label,
+.cs-progress .tick.active .label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cs-progress .tick.active .label {
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .cs-progress { display: none; }
+}
+
 .cs-hero{
 
 padding:0;

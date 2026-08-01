@@ -12,6 +12,7 @@
 
   --bg:#050505;
   --bg-alt:#0B0B0B;
+  --bg-2:#0B0B0B;
   --surface:#111111;
 
   --white:#F5F5F3;
@@ -29,8 +30,8 @@
 
   /* Typography */
 
-  --font-display:'Space Grotesk',sans-serif;
-  --font-body:'Inter',sans-serif;
+  --font-display:'Cormorant Garamond',serif;
+  --font-body:'Plus Jakarta Sans',sans-serif;
   --font-mono:'IBM Plex Mono',monospace;
 
   --fs-display-xl:clamp(5rem,8vw,7rem);
@@ -91,6 +92,7 @@ body.light{
 
   --bg:#F7F7F4;
   --bg-alt:#F2F2EF;
+  --bg-2:#F2F2EF;
   --surface:#FFFFFF;
 
   --white:#2E3238;
