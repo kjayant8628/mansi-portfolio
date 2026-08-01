@@ -29,7 +29,10 @@
 .hero-canvas:hover .hero-canvas-media{ opacity:.85; transform:scale(1.03); }
 .hero-canvas-overlay{ position:absolute; inset:0; background:linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(5,5,4,0.6) 100%); pointer-events:none; }
 .hero-canvas-tag{ position:absolute; bottom:24px; right:32px; font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em; color:var(--gray); text-transform:uppercase; z-index:3; opacity:.6; transition: opacity .3s ease, color .3s ease; }
-.hero-canvas:hover .hero-canvas-tag{ opacity:1; color:var(--white); }
+.hero-canvas:hover .hero-canvas-tag,
+.hero-canvas.active-preview .hero-canvas-tag{ opacity:1; color:var(--white); }
+.hero-canvas.active-preview{ filter: grayscale(0.2) contrast(1.1); border-color: rgba(99, 120, 255, 0.5); }
+.hero-canvas.active-preview .hero-canvas-media{ opacity:.9; transform:scale(1.02); }
 @media (max-width:900px){ .hero-figure{ right:2%; width:70%; opacity:.5; } }
 
 .hero-geo{ position:absolute; inset:0; z-index:2; pointer-events:none; transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }

@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { revealOnScroll } from "./utils.js";
+import { setHeroCanvasMedia } from "../hero.js";
 
 export function initFeaturedAnimation() {
   const cards = document.querySelectorAll(".feat-row");
@@ -39,20 +40,45 @@ export function initFeaturedAnimation() {
     }
   });
 
+  const heroCanvas = document.getElementById("heroCanvas");
+  const heroCanvasTag = heroCanvas?.querySelector(".hero-canvas-tag");
+
   cards.forEach((row) => {
     const cover = row.dataset.cover;
+    const previewUrl = row.dataset.previewUrl || cover;
+    const previewType = row.dataset.previewType || "image";
+    const projectTitle = row.dataset.title || "";
 
     row.addEventListener("mouseenter", () => {
-      if (!cover || window.matchMedia("(max-width: 900px)").matches) return;
-      if (previewImg.src !== cover) {
-        previewImg.src = cover;
+      // 1. Floating cursor preview
+      if (cover && !window.matchMedia("(max-width: 900px)").matches) {
+        if (previewImg.src !== cover) {
+          previewImg.src = cover;
+        }
+        preview.classList.add("active");
+        gsap.set(preview, { x: px, y: py });
       }
-      preview.classList.add("active");
-      gsap.set(preview, { x: px, y: py });
+
+      // 2. Hero Canvas Binding
+      if (heroCanvas && previewUrl) {
+        setHeroCanvasMedia(previewUrl, previewType);
+        if (heroCanvasTag && projectTitle) {
+          heroCanvasTag.textContent = `PROJECT PREVIEW / ${projectTitle.toUpperCase()}`;
+        }
+        heroCanvas.classList.add("active-preview");
+      }
     });
 
     row.addEventListener("mouseleave", () => {
       preview.classList.remove("active");
+
+      // Reset Hero Canvas
+      if (heroCanvas) {
+        heroCanvas.classList.remove("active-preview");
+        if (heroCanvasTag) {
+          heroCanvasTag.textContent = "STUDIO CANVAS / 01";
+        }
+      }
     });
 
     // Outgoing transition to Case Study ("Private Design Room Entry")

@@ -16,6 +16,8 @@ export default {
 
   cover: "/images/nike-retail/page_01.png",
 
+  summary: "Immersive airport retail environment inspired by Nike's performance philosophy and deconstructivist architecture.",
+
 sections: [
 
 {
@@ -80,6 +82,16 @@ sections: [
         }
 
     ]
+},
+
+{
+    type: "custom",
+
+    layout: "statement",
+
+    heading: "Design Philosophy",
+
+    text: "Inspired by Deconstructivist architecture, fragmented geometry and dynamic structural forms become the primary language for an immersive retail journey."
 },
 
 {

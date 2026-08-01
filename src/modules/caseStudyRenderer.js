@@ -55,17 +55,60 @@ function text(value = '') {
  * - loading strategy
  * - aspect class (handled entirely by CSS)
  */
+function normalizeItem(item) {
+  if (typeof item === 'string') {
+    const isVideo = item.match(/\.(mp4|webm|ogg|mov)$/i);
+    const is3d = item.match(/\.(gltf|glb|obj|fbx)$/i);
+    return {
+      type: isVideo ? 'video' : is3d ? '3d' : 'image',
+      image: item,
+      src: item,
+      poster: '',
+      caption: '',
+      description: '',
+      alt: '',
+      aspect: '',
+      loading: 'lazy'
+    };
+  }
+
+  const src = item.image || item.video || item.url || item.src || '';
+  let type = item.type;
+  if (!type) {
+    if (src.match(/\.(mp4|webm|ogg|mov)$/i)) {
+      type = 'video';
+    } else if (src.match(/\.(gltf|glb|obj|fbx)$/i)) {
+      type = '3d';
+    } else {
+      type = 'image';
+    }
+  }
+
+  return {
+    type,
+    image: src,
+    src,
+    poster: item.poster || '',
+    caption: item.caption || '',
+    description: item.description || '',
+    alt: item.alt || '',
+    aspect: item.aspect || '',
+    loading: item.loading || 'lazy'
+  };
+}
+
+/** Renders a single media item.
+ * Supports:
+ * - image (default)
+ * - video (HTML5 video stream)
+ * - 3d (interactive model placeholder)
+ * - caption / description / alt / loading
+ */
 function renderFigure(media = {}, options = {}) {
   if (!media) return '';
 
-  // Backward compatibility:
-  // renderFigure("image.png")
-  if (typeof media === 'string') {
-    media = { image: media };
-  }
-
-  media = {
-    ...media,
+  const normalized = {
+    ...normalizeItem(media),
     caption: media.caption || options.caption || '',
     description: media.description || options.description || '',
     alt: media.alt || options.alt || '',
@@ -74,15 +117,17 @@ function renderFigure(media = {}, options = {}) {
   };
 
   const {
-    image,
+    type = 'image',
+    src = '',
+    poster = '',
     caption = '',
     description = '',
     alt = '',
     aspect = '',
     loading = 'lazy'
-  } = media;
+  } = normalized;
 
-  if (!image) return '';
+  if (!src && type !== '3d') return '';
 
   const className = [
     'cs-figure',
@@ -91,15 +136,38 @@ function renderFigure(media = {}, options = {}) {
     .filter(Boolean)
     .join(' ');
 
-  return `
-    <figure class="${className}">
+  let mediaHtml = '';
+
+  if (type === 'video') {
+    mediaHtml = `
+      <video
+        class="cs-media cs-video"
+        src="${src}"
+        ${poster ? `poster="${poster}"` : ''}
+        autoplay
+        loop
+        muted
+        playsinline
+      ></video>`;
+  } else if (type === '3d') {
+    mediaHtml = `
+      <div class="cs-media cs-3d-placeholder" data-model="${src}">
+        ${poster ? `<img src="${poster}" alt="${alt || '3D Model Poster'}" class="cs-3d-poster" />` : ''}
+        <div class="cs-3d-tag mono">INTERACTIVE 3D MODEL / PLACEHOLDER</div>
+      </div>`;
+  } else {
+    mediaHtml = `
       <img
         class="cs-media"
-        src="${image}"
+        src="${src}"
         alt="${alt}"
         loading="${loading}"
-      >
+      />`;
+  }
 
+  return `
+    <figure class="${className}">
+      ${mediaHtml}
       ${
         caption || description
           ? `
@@ -113,53 +181,8 @@ function renderFigure(media = {}, options = {}) {
   `;
 }
 
-/**
- * Normalizes every supported media format into a consistent object.
- *
- * Supported:
- *
- * media: "image.png"
- *
- * media: [
- *   "image1.png",
- *   "image2.png"
- * ]
- *
- * media: [
- *   {
- *     image,
- *     caption,
- *     description,
- *     alt,
- *     aspect,
- *     loading
- *   }
- * ]
- */
 function normalizeMedia(media) {
   if (!media) return [];
-
-  const normalizeItem = (item) => {
-    if (typeof item === 'string') {
-      return {
-        image: item,
-        caption: '',
-        description: '',
-        alt: '',
-        aspect: '',
-        loading: 'lazy'
-      };
-    }
-
-    return {
-      image: item.image || '',
-      caption: item.caption || '',
-      description: item.description || '',
-      alt: item.alt || '',
-      aspect: item.aspect || '',
-      loading: item.loading || 'lazy'
-    };
-  };
 
   if (typeof media === 'string') {
     return [normalizeItem(media)];
@@ -169,7 +192,7 @@ function normalizeMedia(media) {
     return media.map(normalizeItem);
   }
 
-  if (typeof media === 'object' && media.image) {
+  if (typeof media === 'object' && (media.image || media.video || media.url || media.src)) {
     return [normalizeItem(media)];
   }
 
@@ -185,7 +208,10 @@ function getSectionMediaItems(section) {
 function getPrimaryMedia(section) {
   const items = getSectionMediaItems(section);
   const first = items[0] || {
+    type: 'image',
     image: '',
+    src: '',
+    poster: '',
     caption: '',
     description: '',
     alt: '',
@@ -200,11 +226,7 @@ function getPrimaryMedia(section) {
   };
 }
 
-/** Shared eyebrow + heading block used at the top of every generic
- *  (non-hero, non-reflection) section. `label` defaults to the
- *  section's content type, capitalized, but can be overridden. */
 function renderSectionHead(section) {
-
   const label = section.eyebrow || "";
 
   return `
@@ -228,15 +250,10 @@ function capitalize(str = '') {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-/** Shared body copy — an array of paragraph strings. */
 function renderBody(body = []) {
   return body.map((p) => `<p>${text(p)}</p>`).join('');
 }
 
-/** Wraps a layout's inner markup in the standard section shell.
- *  Keeps the outer <section>/.wrap/data-type contract identical
- *  across every layout, so scroll-reveal (.rv) and the progress
- *  rail (which reads [data-type]) keep working unmodified. */
 function renderSectionShell(section, innerHtml, { className = '' } = {}) {
   return `
     <section class="cs-section layout-${section.layout || 'stack'} ${className} rv" data-type="${section.type}">
@@ -246,21 +263,22 @@ function renderSectionShell(section, innerHtml, { className = '' } = {}) {
     </section>`;
 }
 
-/* =================================================================
-   HERO
-   Fixed structure — every project has exactly one. Supports an
-   optional full-bleed cover image, title, tagline, and a metadata
-   row (discipline, year, role, etc.), with minimal nesting.
-   ================================================================= */
-
 function renderHero(section, project) {
   const meta = (section.meta || [])
     .map((item) => `<span>${item.label}: <b>${item.value}</b></span>`)
     .join('');
 
-  const cover = project.cover
-    ? `<img class="cs-cover" src="${project.cover}" alt="${project.title}" loading="eager">`
-    : '';
+  let cover = '';
+  const heroPreview = project.heroPreview || (project.cover ? { type: 'image', url: project.cover } : null);
+
+  if (heroPreview) {
+    const { type = 'image', url = project.cover || '', poster = '' } = typeof heroPreview === 'string' ? { type: 'image', url: heroPreview } : heroPreview;
+    if (type === 'video') {
+      cover = `<video class="cs-cover cs-video-cover" src="${url}" ${poster ? `poster="${poster}"` : ''} autoplay loop muted playsinline></video>`;
+    } else {
+      cover = `<img class="cs-cover" src="${url}" alt="${project.title}" loading="eager">`;
+    }
+  }
 
   return `
     <section class="cs-hero rv" data-type="hero">
@@ -413,10 +431,12 @@ function renderMetrics(section) {
   return renderSectionShell(section, inner);
 }
 
-/** statement — a single large editorial line, no heading/copy
- *  scaffolding. Used to punctuate a case study with one idea. */
+/** statement — a single large editorial line or pulled thought block. */
 function renderStatement(section) {
-  const inner = `<p class="cs-statement">${text(section.text || '')}</p>`;
+  const statementText = section.text || (Array.isArray(section.body) ? section.body[0] : section.body) || '';
+  const inner = `
+    ${section.heading || section.eyebrow ? renderSectionHead(section) : ''}
+    <blockquote class="cs-quote cs-statement">${text(statementText)}</blockquote>`;
   return renderSectionShell(section, inner);
 }
 

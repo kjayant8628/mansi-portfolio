@@ -11,6 +11,8 @@ export default {
 
   cover: "/images/streetwear/hero.jpg",
 
+  summary: "Basketball-inspired performance streetwear capsule designed for movement, identity, and urban life.",
+
   sections: [
 
 {
@@ -29,6 +31,23 @@ export default {
   heading: "Project Brief",
   body: [
     "Design a Spring/Summer menswear capsule inspired by basketball culture while incorporating multifunctionality, comfort and technical detailing suitable for contemporary streetwear."
+  ]
+},
+
+{
+  type: "custom",
+  layout: "statement",
+  text: "Basketball is more than an athletic sport—it is a visual language expressed through silhouettes, dynamic seam placement, and athletic proportion."
+},
+
+{
+  type: "development",
+  heading: "Design Engineering Focus",
+  layout: "cards",
+  cards: [
+    { title: "Technical Fabrication", text: "French terry and high-density cotton jersey engineered for daily urban wear." },
+    { title: "Ergonomic Seams", text: "Articulated cuts allowing unconstrained athletic motion and comfort." },
+    { title: "Modular Layering", text: "Coordinated capsule looks built for effortless mixing and matching." }
   ]
 },
 

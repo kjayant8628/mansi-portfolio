@@ -1000,6 +1000,135 @@ font-size:54px;
   object-fit:contain;
 }
 
+/* ============================================================
+   POLYMORPHIC MEDIA EXTENSIONS (Video & 3D Placeholders)
+   ============================================================ */
+.cs-media.cs-video,
+.cs-cover.cs-video-cover {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+}
+
+.cs-media.cs-3d-placeholder {
+  position: relative;
+  min-height: 420px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cs-3d-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+}
+
+.cs-3d-tag {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--white);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 8px 16px;
+  border: 1px solid var(--line-strong);
+}
+
+/* ============================================================
+   EDITORIAL GALLERY & PROCESS CARD LAYOUTS
+   ============================================================ */
+.cs-gallery,
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+
+.cs-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.cs-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.cs-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 32px 28px;
+  border-left: 2px solid var(--accent);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.cs-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+}
+
+.cs-card h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.cs-card p {
+  font-size: 13.5px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.cs-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.cs-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px 20px;
+  border-left: 1px solid var(--line);
+}
+
+.cs-metric-number {
+  font-family: var(--font-display);
+  font-size: 42px;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.cs-metric-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+@media (max-width: 760px) {
+  .cs-gallery,
+  .cs-grid,
+  .cs-pair {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
 
 .layout-full img {
   object-fit:contain;

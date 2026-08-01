@@ -12,6 +12,8 @@ export default {
 
   cover: "/images/tennis/hero.jpg",
 
+  summary: "Women's performance tennis capsule inspired by athletic movement, futurism, and thermoregulation.",
+
   sections: [
 
     {
@@ -37,6 +39,28 @@ export default {
 
       body: [
         "Create a Spring/Summer performance tennis capsule that responds to athlete movement, body temperature and contemporary sports aesthetics while remaining commercially viable."
+      ]
+    },
+
+    {
+      type: "custom",
+
+      layout: "statement",
+
+      text: "Performance apparel should quietly enhance movement while confidently expressing futuristic athletic identity."
+    },
+
+    {
+      type: "research",
+
+      heading: "Performance Engineering Pillars",
+
+      layout: "cards",
+
+      cards: [
+        { title: "Thermoregulation", text: "Engineered ventilation zones mapped to athlete heat stress points." },
+        { title: "Futuristic Geometry", text: "Clean panel lines and reflective trims inspired by futuristic forms." },
+        { title: "Seamless Construction", text: "Smooth bonded seams preventing friction during high-intensity play." }
       ]
     },
 
