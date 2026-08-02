@@ -4,9 +4,100 @@
    Each row links out to case-study.html?project=<slug>
    ============================================================ */
 .featured{ padding:180px 0 60px; }
-.featured-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:70px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:40px; }
+.featured-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:50px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:40px; }
 .featured-head h2{ font-size:clamp(32px,4.6vw,52px); margin-top:18px; max-width:640px; font-weight:400; }
 .featured-note{ max-width:280px; color:var(--gray); font-size:13px; font-family:var(--font-mono); letter-spacing:.02em; }
+
+/* ============================================================
+   CURATED ARCHIVE FILTERS & GROUPS
+   ============================================================ */
+.archive-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 60px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-filter-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--gray);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 8px 18px;
+  border-radius: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.archive-filter-btn:hover {
+  border-color: var(--line-strong);
+  color: var(--white);
+}
+
+.archive-filter-btn.active {
+  background: var(--surface);
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+.archive-filter-btn .count-badge {
+  font-size: 10px;
+  color: var(--gray-dim);
+}
+
+.archive-filter-btn.active .count-badge {
+  color: var(--accent);
+}
+
+.archive-group {
+  margin-bottom: 64px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.archive-group.is-hidden {
+  display: none;
+}
+
+.archive-group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-group-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.archive-group-title .group-idx {
+  color: var(--gray-dim);
+}
+
+.archive-group-count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--gray-dim);
+  text-transform: uppercase;
+}
 
 .feat-row{
   display:grid; grid-template-columns:70px 1fr 260px 80px 32px;

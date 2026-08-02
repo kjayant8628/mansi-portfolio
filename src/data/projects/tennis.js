@@ -4,6 +4,8 @@ export default {
 
   title: "Tennis Performance Wear S/S 2022",
 
+  category: "Digital Product",
+
   discipline: ["Fashion Design"],
 
   year: 2022,

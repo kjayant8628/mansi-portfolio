@@ -4,6 +4,8 @@ export default {
 
   title: "Nike Airport Retail Experience",
 
+  category: "3D",
+
   discipline: [
     "Retail Design",
     "Spatial Design",

@@ -35,3 +35,24 @@ export function getNextProject(slug) {
   return list[(i + 1) % list.length];
 }
 
+// Returns all unique categories present across featured projects
+export function getProjectCategories() {
+  const list = getFeaturedProjects();
+  const set = new Set();
+  list.forEach((p) => {
+    if (p.category) set.add(p.category);
+  });
+  return Array.from(set);
+}
+
+// Returns projects grouped by category object: { [category]: project[] }
+export function getGroupedProjects() {
+  const list = getFeaturedProjects();
+  const grouped = {};
+  list.forEach((p) => {
+    const cat = p.category || 'General';
+    if (!grouped[cat]) grouped[cat] = [];
+    grouped[cat].push(p);
+  });
+  return grouped;
+}
