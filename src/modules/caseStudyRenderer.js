@@ -166,7 +166,7 @@ function renderFigure(media = {}, options = {}) {
   }
 
   return `
-    <figure class="${className}">
+    <figure class="${className}" data-cursor="view" data-board-src="${src}" data-board-type="${type}" data-board-caption="${escapeAttr(caption)}" data-board-description="${escapeAttr(description)}">
       ${mediaHtml}
       ${
         caption || description
@@ -179,6 +179,14 @@ function renderFigure(media = {}, options = {}) {
       }
     </figure>
   `;
+}
+
+function escapeAttr(str = '') {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 function normalizeMedia(media) {
