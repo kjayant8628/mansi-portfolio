@@ -1431,6 +1431,67 @@ font-size:54px;
   }
 }
 
+/* ============================================================
+   PROJECT-SPECIFIC DISCIPLINE THEMES & ART DIRECTION
+   ============================================================ */
+
+/* 1. Spatial 3D & Retail (Nike Airport Retail & BAPE Flagship) */
+[data-project-theme="nike-airport-retail"] {
+  --accent: #4f6df5;
+  --line-strong: rgba(79, 109, 245, 0.4);
+}
+
+[data-project-theme="bape-project"] {
+  --accent: #e67e22;
+  --line-strong: rgba(230, 126, 34, 0.4);
+}
+
+/* 2. Streetwear & Fashion Performance (Streetwear SS21) */
+[data-project-theme="streetwear-ss21"] {
+  --accent: #ff4d2e;
+  --line-strong: rgba(255, 77, 46, 0.4);
+}
+
+[data-project-theme="streetwear-ss21"] .cs-card {
+  border-left-color: #ff4d2e;
+}
+
+/* 3. Athletic Sportswear & Ergonomics (Tennis Performance Wear) */
+[data-project-theme="tennis-ss22"] {
+  --accent: #cfeb00;
+  --line-strong: rgba(207, 235, 0, 0.4);
+}
+
+[data-project-theme="tennis-ss22"] .cs-opening-statement {
+  border-left-color: #cfeb00;
+}
+
+/* 4. Sculptural Fashion & Textile Craft (Bamboo Craft / Portfolio 3) */
+[data-project-theme="portfolio-3"] {
+  --accent: #d4af37;
+  --line-strong: rgba(212, 175, 55, 0.4);
+}
+
+[data-project-theme="portfolio-3"] .cs-figure {
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+/* 5. Editorial Branding & Systems (Kestrel Identity) */
+[data-project-theme="kestrel-branding"] {
+  --accent: #d35400;
+  --line-strong: rgba(211, 84, 0, 0.4);
+}
+
+[data-project-theme="kestrel-branding"] .colophon-header {
+  color: #d35400;
+}
+
+/* 6. Motion & Kinetic Lab (Kinetic Motion Systems) */
+[data-project-theme="kinetic-motion"] {
+  --accent: #a855f7;
+  --line-strong: rgba(168, 85, 247, 0.45);
+}
+
 /* ===========================================================
    END
 =========================================================== */

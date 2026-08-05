@@ -6,6 +6,8 @@ export default {
 
   category: "3D",
 
+  theme: "nike-airport-retail",
+
   discipline: [
     "Retail Design",
     "Spatial Design",

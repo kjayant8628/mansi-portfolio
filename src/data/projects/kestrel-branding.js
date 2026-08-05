@@ -5,6 +5,8 @@ export default {
 
   category: "Branding",
 
+  theme: "kestrel-branding",
+
   discipline: [
     "Brand Identity",
     "Design System",

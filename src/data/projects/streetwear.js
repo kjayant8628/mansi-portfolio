@@ -5,6 +5,8 @@ export default {
 
   category: "Experimental",
 
+  theme: "streetwear-ss21",
+
   discipline: ["Fashion Design"],
 
   year: 2021,

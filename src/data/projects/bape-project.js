@@ -5,6 +5,8 @@ export default {
 
   category: "3D",
 
+  theme: "bape-project",
+
   discipline: [
     "Spatial Design",
     "Brand Experience",

@@ -5,6 +5,8 @@ export default {
 
   category: "Fashion Design",
 
+  theme: "portfolio-3",
+
   discipline: [
     "Fashion Design",
     "Patternmaking",
@@ -131,7 +133,7 @@ export default {
 
       heading: "Technical Patterning & Construction Specs",
 
-      layout: "grid",
+      layout: "gallery",
 
       media: [
         { image: "/images/portfolio3_png_pages/portfolio3_page_08.png", caption: "Pattern Drafting & Seam Mapping" },

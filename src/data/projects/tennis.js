@@ -6,6 +6,8 @@ export default {
 
   category: "Digital Product",
 
+  theme: "tennis-ss22",
+
   discipline: ["Fashion Design"],
 
   year: 2022,

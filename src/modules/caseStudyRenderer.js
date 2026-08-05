@@ -263,8 +263,10 @@ function renderBody(body = []) {
 }
 
 function renderSectionShell(section, innerHtml, { className = '' } = {}) {
+  const themeClass = section.theme ? `theme-${section.theme}` : '';
+  const accentClass = section.accent ? `accent-${section.accent}` : '';
   return `
-    <section class="cs-section layout-${section.layout || 'stack'} ${className} rv" data-type="${section.type}">
+    <section class="cs-section layout-${section.layout || 'stack'} ${className} ${themeClass} ${accentClass} rv" data-type="${section.type}">
       <div class="wrap">
         ${innerHtml}
       </div>
@@ -601,6 +603,7 @@ export function renderCaseStudy(slug) {
     .join('');
 
   root.innerHTML = sectionsHtml + renderNextProject(slug);
+  document.body.setAttribute('data-project-theme', project.theme || project.slug || '');
   document.title = `${project.title} — Mansi Rawat Studio`;
 
   return project;

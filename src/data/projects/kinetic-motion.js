@@ -5,6 +5,8 @@ export default {
 
   category: "Motion",
 
+  theme: "kinetic-motion",
+
   discipline: [
     "Motion Design",
     "3D Motion",
