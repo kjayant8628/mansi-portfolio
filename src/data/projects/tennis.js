@@ -21,16 +21,23 @@ export default {
     {
       type: "hero",
 
+      role: "Research • Fashion Design • Sportswear Development",
+
+      tools: "Clo3D • Browzwear • Textile Lab • Photoshop",
+
+      timeline: "14 Weeks",
+
+      statement: "Women's performance tennis wear inspired by movement, futurism and thermoregulation.",
+
       tagline:
         "Women's performance tennis wear inspired by movement, futurism and thermoregulation.",
 
       meta: [
         { label: "Project", value: "Academic Collection" },
-        { label: "Duration", value: "14 Weeks" },
-        {
-          label: "Role",
-          value: "Research • Fashion Design • Sportswear Development"
-        }
+        { label: "Role", value: "Research • Fashion Design • Sportswear Development" },
+        { label: "Tools", value: "Clo3D • Browzwear • Textile Lab • Photoshop" },
+        { label: "Timeline", value: "14 Weeks" },
+        { label: "Year", value: "2022" }
       ]
     },
 
@@ -69,35 +76,24 @@ export default {
     {
       type: "research",
 
-      heading: "Understanding Performance",
+      heading: "Performance Science & Trend Forecast",
 
-      layout: "media-right",
+      layout: "pair",
 
-      media: "/images/tennis/research.jpg",
-
-      body: [
-        "The project began by understanding the science behind athletic performance. Heat stress, body compression, thermoregulation and engineered knit structures formed the foundation for every design decision."
-      ]
-    },
-
-    {
-      type: "research",
-
-      heading: "Trend Forecast",
-
-      layout: "media-left",
-
-      media: "/images/tennis/forecast.jpg",
+      media: [
+        { image: "/images/tennis/research.jpg", caption: "Athletic Ergonomics & Body Compression" },
+        { image: "/images/tennis/forecast.jpg", caption: "WGSN S/S 2022 Textile Forecast" }
+      ],
 
       body: [
-        "WGSN S/S 2022 highlighted interactive textiles, breathable construction, adaptable garments and seamless technology. These forecasts became the creative framework for the collection."
+        "The project began by understanding heat stress, thermoregulation and engineered knit structures. WGSN forecasts guided the creative framework."
       ]
     },
 
     {
       type: "custom",
 
-      heading: "Market Analysis",
+      heading: "Market Intelligence",
 
       layout: "media-right",
 
@@ -109,13 +105,24 @@ export default {
     },
 
     {
+      type: "custom",
+
+      layout: "statement",
+
+      text: "Thermoregulation and ergonomic seams must feel weightless under competition intensity."
+    },
+
+    {
       type: "process",
 
-      heading: "Visual Direction",
+      heading: "Visual Direction & Futuristic Aesthetics",
 
-      layout: "media-left",
+      layout: "pair",
 
-      media: "/images/tennis/idea-board.jpg",
+      media: [
+        { image: "/images/tennis/idea-board.jpg", caption: "Visual Direction & Seams" },
+        { image: "/images/tennis/futurism.jpg", caption: "Futuristic Geometry & Colour Language" }
+      ],
 
       body: [
         "Reflective trims, ergonomic panel lines, seamless zippers and dynamic colour blocking established the initial visual language of the collection."
@@ -123,72 +130,19 @@ export default {
     },
 
     {
-      type: "custom",
-
-      heading: "Concept Development",
-
-      layout: "media-right",
-
-      media: "/images/tennis/futurism.jpg",
-
-      body: [
-        "Futurism became the central inspiration. Architectural forms, technology and fluid movement translated into clean geometry, layered surfaces and energetic proportions."
-      ]
-    },
-
-    {
-      type: "custom",
-
-      heading: "Colour & Material Language",
-
-      layout: "media-left",
-
-      media: "/images/tennis/futurism.jpg",
-
-      body: [
-        "Neutral performance fabrics were paired with vibrant accent colours to create contrast while maintaining a lightweight technical aesthetic."
-      ]
-    },
-
-    {
       type: "development",
 
-      heading: "Design Exploration",
+      heading: "Technical Resolution & Construction",
 
-      layout: "media-right",
+      layout: "grid",
 
-      media: "/images/tennis/development.jpg",
-
-      body: [
-        "Multiple iterations explored seam placement, garment balance and construction details before narrowing the strongest design direction."
-      ]
-    },
-
-    {
-      type: "development",
-
-      heading: "Technical Resolution",
-
-      layout: "media-left",
-
-      media: "/images/tennis/technical-details.jpg",
+      media: [
+        { image: "/images/tennis/development.jpg", caption: "Pattern & Seam Iterations" },
+        { image: "/images/tennis/technical-details.jpg", caption: "Technical Flat & Trim Specifications" }
+      ],
 
       body: [
-        "Technical flats resolved panel construction, mesh placement, reflective piping, trims and fabrication before final presentation."
-      ]
-    },
-
-    {
-      type: "custom",
-
-      heading: "Design Highlights",
-
-      layout: "media-right",
-
-      media: "/images/tennis/technical-details.jpg",
-
-      body: [
-        "Every garment combines ventilation zones, ergonomic construction and performance-driven detailing to improve comfort throughout high-intensity play."
+        "Multiple iterations explored seam placement and construction details. Technical flats resolved panel construction, mesh placement, reflective piping and trims."
       ]
     },
 

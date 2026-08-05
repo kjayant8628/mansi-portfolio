@@ -19,12 +19,18 @@ export default {
 
 {
   type: "hero",
+  role: "Research • Fashion Design • Pattern Development",
+  tools: "Clo3D • Optitex • Patternmaking • Illustrator",
+  timeline: "10 Weeks",
+  statement: "Basketball-inspired performance streetwear designed for movement, identity and everyday urban life.",
   tagline:
     "Basketball-inspired performance streetwear designed for movement, identity and everyday urban life.",
   meta: [
     { label: "Project", value: "Academic Collection" },
-    { label: "Duration", value: "12 Weeks" },
-    { label: "Role", value: "Research • Fashion Design • Pattern Development" }
+    { label: "Role", value: "Research • Fashion Design • Pattern Development" },
+    { label: "Tools", value: "Clo3D • Optitex • Patternmaking • Illustrator" },
+    { label: "Timeline", value: "10 Weeks" },
+    { label: "Year", value: "2021" }
   ]
 },
 
@@ -55,27 +61,20 @@ export default {
 
 {
   type: "research",
-  heading: "Concept",
-  layout: "media-right",
-  media: "/images/streetwear/concept.jpg",
+  heading: "Concept & Trend Forecast",
+  layout: "pair",
+  media: [
+    { image: "/images/streetwear/concept.jpg", caption: "Solar Surf Concept Exploration" },
+    { image: "/images/streetwear/wgsn.jpg", caption: "WGSN S/S 2021 Trend Guidance" }
+  ],
   body: [
-    "The collection explores speed, movement and confidence through the Solar Surf forecast. Basketball becomes more than a sport—it becomes a visual language expressed through silhouettes, colour blocking and technical details."
+    "The collection explores speed, movement and confidence. Guided by WGSN S/S 2021 forecasts emphasizing adaptability, technical fabrics and athletic urban lifestyles."
   ]
 },
 
 {
   type: "research",
-  heading: "Trend Forecast",
-  layout: "media-left",
-  media: "/images/streetwear/wgsn.jpg",
-  body: [
-    "The project was guided by WGSN Spring/Summer 2021 forecasts emphasizing adaptability, technical fabrics and contemporary athletic lifestyles."
-  ]
-},
-
-{
-  type: "research",
-  heading: "Target Consumer",
+  heading: "Target Consumer Profile",
   layout: "media-right",
   media: "/images/streetwear/persona.jpg",
   body: [
@@ -84,28 +83,27 @@ export default {
 },
 
 {
+  type: "custom",
+  layout: "statement",
+  text: "Form follows movement: exaggerated proportions, articulated joints, and athletic seam placement definition."
+},
+
+{
   type: "process",
-  heading: "Silhouette Development",
-  layout: "media-left",
-  media: "/images/streetwear/silhouettes.jpg",
+  heading: "Silhouettes & Material Board",
+  layout: "pair",
+  media: [
+    { image: "/images/streetwear/silhouettes.jpg", caption: "Silhouette Iterations" },
+    { image: "/images/streetwear/fabric-board.jpg", caption: "Technical Fabric Selection" }
+  ],
   body: [
-    "Multiple silhouettes were explored through exaggerated proportions, ergonomic cuts and layered sportswear elements before arriving at the final collection."
+    "Multiple silhouettes were explored through exaggerated proportions. French terry, jersey, mesh and cotton blends were selected for breathability and durability."
   ]
 },
 
 {
   type: "development",
-  heading: "Fabric Board",
-  layout: "media-right",
-  media: "/images/streetwear/fabric-board.jpg",
-  body: [
-    "French terry, jersey, mesh and cotton blends were selected to provide breathability, comfort and durability while maintaining the technical aesthetic."
-  ]
-},
-
-{
-  type: "development",
-  heading: "Design Development",
+  heading: "Design Refinement",
   layout: "media-left",
   media: "/images/streetwear/development.jpg",
   body: [
@@ -115,13 +113,13 @@ export default {
 
 {
   type: "development",
-  heading: "Technical Drawings",
+  heading: "Technical Drawings & Flat Specifications",
   layout: "grid",
   media: [
-    "/images/streetwear/technical-1.jpg",
-    "/images/streetwear/technical-2.jpg",
-    "/images/streetwear/technical-3.jpg",
-    "/images/streetwear/garment-detail.jpg"
+    { image: "/images/streetwear/technical-1.jpg", caption: "Hoodie Construction Flat" },
+    { image: "/images/streetwear/technical-2.jpg", caption: "Track Pant Specifications" },
+    { image: "/images/streetwear/technical-3.jpg", caption: "Shorts & Vest Layout" },
+    { image: "/images/streetwear/garment-detail.jpg", caption: "Trim & Pocket Details" }
   ],
   body: [
     "Technical flats document garment construction, trims, measurements and functional detailing before production."
@@ -130,7 +128,7 @@ export default {
 
 {
   type: "outcome",
-  heading: "Final Collection",
+  heading: "Final Collection Lookbook",
   layout: "full-bleed",
   media: "/images/streetwear/final.jpg",
   body: [

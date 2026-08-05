@@ -264,15 +264,25 @@ function renderSectionShell(section, innerHtml, { className = '' } = {}) {
 }
 
 function renderHero(section, project) {
-  const meta = (section.meta || [])
-    .map((item) => `<span>${item.label}: <b>${item.value}</b></span>`)
-    .join('');
+  // Extract or fallback metadata fields for editorial book colophon composition
+  const category = project.category || (project.discipline ? project.discipline[0] : 'Design Archive');
+  const year = project.year || '2023';
+
+  // Meta search helpers for robust backward compatibility
+  const findMeta = (key) =>
+    section.meta?.find((m) => m.label && m.label.toLowerCase().includes(key))?.value;
+
+  const role = section.role || findMeta('role') || (project.discipline ? project.discipline.join(' • ') : 'Design Direction');
+  const tools = section.tools || findMeta('tools') || 'Design Systems • 3D • Adobe CC';
+  const timeline = section.timeline || section.duration || findMeta('duration') || findMeta('timeline') || '12 Weeks';
+  const statement = section.statement || section.tagline || project.summary || '';
 
   let cover = '';
   const heroPreview = project.heroPreview || (project.cover ? { type: 'image', url: project.cover } : null);
 
   if (heroPreview) {
-    const { type = 'image', url = project.cover || '', poster = '' } = typeof heroPreview === 'string' ? { type: 'image', url: heroPreview } : heroPreview;
+    const { type = 'image', url = project.cover || '', poster = '' } =
+      typeof heroPreview === 'string' ? { type: 'image', url: heroPreview } : heroPreview;
     if (type === 'video') {
       cover = `<video class="cs-cover cs-video-cover" src="${url}" ${poster ? `poster="${poster}"` : ''} autoplay loop muted playsinline></video>`;
     } else {
@@ -283,10 +293,40 @@ function renderHero(section, project) {
   return `
     <section class="cs-hero rv" data-type="hero">
       ${cover}
-      <div class="wrap">
-        ${meta ? `<div class="meta-row">${meta}</div>` : ''}
-        <h1>${text(project.title)}</h1>
-        ${section.tagline ? `<p class="tagline">${text(section.tagline)}</p>` : ''}
+      <div class="wrap cs-opening-grid">
+        <div class="cs-opening-main">
+          <div class="cs-opening-eyebrow mono">
+            <span class="catalog-num">CASE STUDY</span>
+            <span class="sep">/</span>
+            <span class="cat-tag">${text(category).toUpperCase()}</span>
+            <span class="sep">•</span>
+            <span class="year-tag">${text(String(year))}</span>
+          </div>
+          <h1 class="cs-opening-title">${text(project.title)}</h1>
+          ${statement ? `<p class="cs-opening-statement">${text(statement)}</p>` : ''}
+        </div>
+
+        <div class="cs-opening-colophon">
+          <div class="colophon-header mono">STUDIO COLOPHON</div>
+          <div class="colophon-grid">
+            <div class="colophon-item">
+              <span class="colophon-label mono">ROLE</span>
+              <span class="colophon-val">${text(role)}</span>
+            </div>
+            <div class="colophon-item">
+              <span class="colophon-label mono">TOOLS</span>
+              <span class="colophon-val">${text(tools)}</span>
+            </div>
+            <div class="colophon-item">
+              <span class="colophon-label mono">TIMELINE</span>
+              <span class="colophon-val">${text(timeline)}</span>
+            </div>
+            <div class="colophon-item">
+              <span class="colophon-label mono">CATEGORY</span>
+              <span class="colophon-val">${text(category)} (${text(String(year))})</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>`;
 }

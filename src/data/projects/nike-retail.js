@@ -25,22 +25,23 @@ sections: [
 {
     type: "hero",
 
+    role: "Research • Concept • Space Planning • 3D Visualization",
+
+    tools: "Rhino 3D • KeyShot • Clo3D • Adobe CC",
+
+    timeline: "12 Weeks",
+
+    statement: "Designing an immersive airport retail environment inspired by Nike's performance philosophy and deconstructivist architecture.",
+
     tagline:
         "Designing an immersive airport retail environment inspired by Nike's performance philosophy and deconstructivist architecture.",
 
     meta: [
-        {
-            label: "Project",
-            value: "Airport Retail Design"
-        },
-        {
-            label: "Role",
-            value: "Research • Concept • Space Planning • 3D Visualization"
-        },
-        {
-            label: "Year",
-            value: "2022"
-        }
+        { label: "Project", value: "Airport Retail Design" },
+        { label: "Role", value: "Research • Concept • Space Planning • 3D Visualization" },
+        { label: "Tools", value: "Rhino 3D • KeyShot • Clo3D • Adobe CC" },
+        { label: "Timeline", value: "12 Weeks" },
+        { label: "Year", value: "2022" }
     ]
 },
 
@@ -55,38 +56,6 @@ sections: [
 },
 
 {
-    type: "gallery",
-
-    label: "Brand Research",
-
-    heading: "Brand Research",
-
-    media: [
-
-        {
-            image: "/images/nike-retail/page_02.png",
-            caption: "Understanding Nike"
-        },
-
-        {
-            image: "/images/nike-retail/page_03.png",
-            caption: "Brand Vision"
-        },
-
-        {
-            image: "/images/nike-retail/page_04.png",
-            caption: "Brand Analysis"
-        },
-
-        {
-            image: "/images/nike-retail/page_05.png",
-            caption: "Target Persona"
-        }
-
-    ]
-},
-
-{
     type: "custom",
 
     layout: "statement",
@@ -94,6 +63,37 @@ sections: [
     heading: "Design Philosophy",
 
     text: "Inspired by Deconstructivist architecture, fragmented geometry and dynamic structural forms become the primary language for an immersive retail journey."
+},
+
+{
+    type: "development",
+
+    heading: "Spatial Design Pillars",
+
+    layout: "cards",
+
+    cards: [
+        { title: "Deconstructivist Geometry", text: "Fragmented architectural forms creating dynamic visual motion across the storefront." },
+        { title: "Transit Circulation", text: "Intuitive flow paths engineered for high-velocity airport passenger movement." },
+        { title: "Immersive Merchandising", text: "Integrated digital displays and modular focal fixtures showcasing core performance products." }
+    ]
+},
+
+{
+    type: "gallery",
+
+    heading: "Brand Identity & Persona Study",
+
+    layout: "pair",
+
+    media: [
+        { image: "/images/nike-retail/page_02.png", caption: "Understanding Nike Brand Core" },
+        { image: "/images/nike-retail/page_03.png", caption: "Brand Vision & Spatial Application" }
+    ],
+
+    body: [
+        "Analyzing Nike's heritage and target athletic personas to inform the spatial hierarchy of the airport concept."
+    ]
 },
 
 {
@@ -113,22 +113,13 @@ sections: [
 {
     type: "research",
 
-    heading: "Trend Forecast & Market Study",
+    heading: "Trend Forecast & Market Analysis",
 
-    layout: "gallery",
+    layout: "pair",
 
     media: [
-
-        {
-            image: "/images/nike-retail/page_07.png",
-            caption: "Trend Forecast"
-        },
-
-        {
-            image: "/images/nike-retail/page_08.png",
-            caption: "Market Analysis"
-        }
-
+        { image: "/images/nike-retail/page_07.png", caption: "Retail Trend Forecast" },
+        { image: "/images/nike-retail/page_08.png", caption: "Airport Retail Market Study" }
     ],
 
     body: [
@@ -139,27 +130,14 @@ sections: [
 {
     type: "development",
 
-    heading: "Concept Development",
+    heading: "Concept & Fixture Development",
 
     layout: "gallery",
 
     media: [
-
-        {
-            image: "/images/nike-retail/page_09.png",
-            caption: "Installation Concept"
-        },
-
-        {
-            image: "/images/nike-retail/page_10.png",
-            caption: "Installation Development"
-        },
-
-        {
-            image: "/images/nike-retail/page_11.png",
-            caption: "Retail Fixtures"
-        }
-
+        { image: "/images/nike-retail/page_09.png", caption: "Installation Concept" },
+        { image: "/images/nike-retail/page_10.png", caption: "Installation Development" },
+        { image: "/images/nike-retail/page_11.png", caption: "Retail Fixtures" }
     ],
 
     body: [
@@ -170,27 +148,14 @@ sections: [
 {
     type: "process",
 
-    heading: "Spatial Planning",
+    heading: "Spatial Planning & Zoning",
 
-    layout: "gallery",
+    layout: "grid",
 
     media: [
-
-        {
-            image: "/images/nike-retail/page_12.png",
-            caption: "Bubble Diagram"
-        },
-
-        {
-            image: "/images/nike-retail/page_13.png",
-            caption: "Floor Plan"
-        },
-
-        {
-            image: "/images/nike-retail/page_14.png",
-            caption: "Top View"
-        }
-
+        { image: "/images/nike-retail/page_12.png", caption: "Bubble Diagram & Circulation" },
+        { image: "/images/nike-retail/page_13.png", caption: "Master Floor Plan" },
+        { image: "/images/nike-retail/page_14.png", caption: "Top Orthographic View" }
     ],
 
     body: [
@@ -215,74 +180,30 @@ sections: [
 {
     type: "gallery",
 
-    heading: "Final Retail Experience",
+    heading: "Interior Architecture Showcase",
 
-    layout: "full-bleed",
+    layout: "grid",
 
     media: [
-
-        {
-            image: "/images/nike-retail/page_16.png",
-            caption: "Retail Perspective"
-        },
-
-        {
-            image: "/images/nike-retail/page_17.png",
-            caption: "Interior Experience"
-        },
-
-        {
-            image: "/images/nike-retail/page_18.png",
-            caption: "Product Display"
-        },
-
-        {
-            image: "/images/nike-retail/page_19.png",
-            caption: "Cash Counter"
-        },
-
-        {
-            image: "/images/nike-retail/page_20.png",
-            caption: "Store Experience"
-        },
-
-        {
-            image: "/images/nike-retail/page_21.png",
-            caption: "Architectural Detail"
-        },
-
-        {
-            image: "/images/nike-retail/page_22.png",
-            caption: "Retail Rendering"
-        },
-
-        {
-            image: "/images/nike-retail/page_23.png",
-            caption: "Final Interior View"
-        }
-
+        { image: "/images/nike-retail/page_16.png", caption: "Retail Perspective" },
+        { image: "/images/nike-retail/page_17.png", caption: "Interior Experience" },
+        { image: "/images/nike-retail/page_18.png", caption: "Product Display" },
+        { image: "/images/nike-retail/page_19.png", caption: "Cash Counter Area" },
+        { image: "/images/nike-retail/page_20.png", caption: "Store Experience View" },
+        { image: "/images/nike-retail/page_21.png", caption: "Architectural Detail" }
     ]
 },
 
 {
     type: "gallery",
 
-    heading: "Architectural Views",
+    heading: "Architectural Section Views",
 
     layout: "pair",
 
     media: [
-
-        {
-            image: "/images/nike-retail/page_24.png",
-            caption: "Retail Perspective Study"
-        },
-
-        {
-            image: "/images/nike-retail/page_25.png",
-            caption: "Store Sections & Exterior Views"
-        }
-
+        { image: "/images/nike-retail/page_24.png", caption: "Retail Perspective Study" },
+        { image: "/images/nike-retail/page_25.png", caption: "Store Sections & Exterior Views" }
     ]
 },
 
@@ -307,10 +228,7 @@ sections: [
     layout: "center",
 
     media: [
-        {
-            image: "/images/nike-retail/page_26.png",
-            caption: "Thank You"
-        }
+        { image: "/images/nike-retail/page_26.png", caption: "Project Closing Plate" }
     ]
 }
 
